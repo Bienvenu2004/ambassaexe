@@ -4,7 +4,7 @@ import { Link, useRouter } from "../lib/router";
 import { Button, IconClose, IconMenu, IconSearch, IconWhatsApp, Wordmark } from "./ui";
 
 const NAV = [
-  { to: "/gratuit", label: "Gratuit", accent: true },
+  { to: "/gratuit", label: "Ressources gratuites", accent: true },
   { to: "/guide-ultime", label: "Le Guide Ultime", accent: false },
   { to: "/services", label: "Prestations", accent: false },
   { to: "/formations", label: "Formations", accent: false },
