@@ -300,6 +300,42 @@ export const IconMail = () => (
   </svg>
 );
 
+/* ── Pictogrammes des réseaux ─────────────────────────────────────────
+   Tracés simplifiés, à la taille des autres icônes de l'en-tête. Ils ne
+   servent qu'à pointer vers les comptes correspondants.                */
+
+export const IconFacebook = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={ico} aria-hidden="true">
+    <path d="M13.5 21v-7.6h2.55l.38-2.96H13.5V8.56c0-.86.24-1.44 1.47-1.44h1.57V4.47A21 21 0 0 0 14.25 4.35c-2.27 0-3.82 1.39-3.82 3.93v2.16H7.88v2.96h2.55V21h3.07Z" />
+  </svg>
+);
+
+export const IconYouTube = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={ico} aria-hidden="true">
+    <path d="M21.6 7.42a2.52 2.52 0 0 0-1.77-1.79C18.26 5.2 12 5.2 12 5.2s-6.26 0-7.83.43A2.52 2.52 0 0 0 2.4 7.42 26.3 26.3 0 0 0 2 12a26.3 26.3 0 0 0 .4 4.58 2.52 2.52 0 0 0 1.77 1.79c1.57.43 7.83.43 7.83.43s6.26 0 7.83-.43a2.52 2.52 0 0 0 1.77-1.79A26.3 26.3 0 0 0 22 12a26.3 26.3 0 0 0-.4-4.58ZM10.1 14.93V9.07L15.1 12l-5 2.93Z" />
+  </svg>
+);
+
+export const IconTikTok = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={ico} aria-hidden="true">
+    <path d="M16.78 2.4h-3.02v13.03a2.56 2.56 0 1 1-2.16-2.52V9.78a5.65 5.65 0 1 0 5.18 5.63V8.84a6.4 6.4 0 0 0 3.62 1.14V6.9a3.6 3.6 0 0 1-3.62-3.6V2.4Z" />
+  </svg>
+);
+
+/** Choisit le pictogramme d'un réseau à partir de son nom. */
+export const SocialIcon = ({ name }: { name: string }) => {
+  switch (name.toLowerCase()) {
+    case "facebook":
+      return <IconFacebook />;
+    case "youtube":
+      return <IconYouTube />;
+    case "tiktok":
+      return <IconTikTok />;
+    default:
+      return <IconArrow />;
+  }
+};
+
 /* ── Pictogrammes des prestations ─────────────────────────────────────── */
 
 const SV = "size-6 shrink-0";

@@ -3,7 +3,7 @@ import { CONTACT, LEGAL, SOCIALS } from "../data/site";
 import { SERVICES } from "../data/services";
 import { SITE } from "../data/site";
 import { Link } from "../lib/router";
-import { Button, IconArrow, IconMail, IconWhatsApp, Section } from "./ui";
+import { Button, IconArrow, IconMail, IconWhatsApp, Section, SocialIcon } from "./ui";
 
 /* ── Appel final, commun à toutes les pages ───────────────────────────── */
 
@@ -158,19 +158,33 @@ export function Footer() {
               ))}
             </ul>
             {SOCIALS.length > 0 && (
-              <ul className="mt-7 flex flex-wrap gap-x-5 gap-y-2">
+              <ul className="mt-7 flex flex-wrap items-center gap-2">
                 {SOCIALS.map((x) => (
                   <li key={x.url}>
                     <a
                       href={x.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[14.5px] text-ink/70 transition-colors hover:text-ink"
+                      title={x.label}
+                      aria-label={x.label}
+                      className="grid size-10 place-items-center rounded-full bg-paper-2 text-ink-soft transition-colors hover:text-clay-deep"
                     >
-                      {x.label}
+                      <SocialIcon name={x.label} />
                     </a>
                   </li>
                 ))}
+                {CONTACT.email && (
+                  <li>
+                    <a
+                      href={`mailto:${CONTACT.email}`}
+                      title={CONTACT.email}
+                      aria-label={`Écrire à ${CONTACT.email}`}
+                      className="grid size-10 place-items-center rounded-full bg-paper-2 text-ink-soft transition-colors hover:text-clay-deep"
+                    >
+                      <IconMail />
+                    </a>
+                  </li>
+                )}
               </ul>
             )}
           </nav>

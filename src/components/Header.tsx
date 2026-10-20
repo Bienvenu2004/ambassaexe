@@ -1,7 +1,16 @@
 import { useEffect, useState } from "react";
-import { ANNOUNCEMENT, CONTACT } from "../data/site";
+import { ANNOUNCEMENT, CONTACT, SOCIALS } from "../data/site";
 import { Link, useRouter } from "../lib/router";
-import { Button, IconClose, IconMenu, IconSearch, IconWhatsApp, Wordmark } from "./ui";
+import {
+  Button,
+  IconClose,
+  IconMail,
+  IconMenu,
+  IconSearch,
+  IconWhatsApp,
+  SocialIcon,
+  Wordmark,
+} from "./ui";
 
 const NAV = [
   { to: "/gratuit", label: "Ressources gratuites", accent: true },
@@ -79,13 +88,13 @@ export function Header({
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4 sm:px-6">
         <Wordmark />
 
-        <nav className="ml-6 hidden items-center gap-1 lg:flex" aria-label="Navigation principale">
+        <nav className="ml-4 hidden items-center gap-0.5 lg:flex" aria-label="Navigation principale">
           {NAV.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               ariaLabel={n.label}
-              className={`rounded-full px-3.5 py-2 text-[13.5px] font-medium whitespace-nowrap transition-colors ${
+              className={`rounded-full px-2.5 py-2 text-[13.5px] font-medium whitespace-nowrap transition-colors xl:px-3.5 ${
                 active(n.to)
                   ? n.accent
                     ? "bg-ink text-paper"
@@ -101,8 +110,37 @@ export function Header({
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
+          <ul className="hidden items-center gap-0.5 lg:flex xl:mr-1">
+            {SOCIALS.map((r) => (
+              <li key={r.url}>
+                <a
+                  href={r.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={r.label}
+                  aria-label={r.label}
+                  className="grid size-8 place-items-center rounded-full text-ink-soft transition-colors hover:bg-paper-2 hover:text-clay-deep"
+                >
+                  <SocialIcon name={r.label} />
+                </a>
+              </li>
+            ))}
+            {CONTACT.email && (
+              <li>
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  title={CONTACT.email}
+                  aria-label={`Écrire à ${CONTACT.email}`}
+                  className="grid size-8 place-items-center rounded-full text-ink-soft transition-colors hover:bg-paper-2 hover:text-clay-deep"
+                >
+                  <IconMail />
+                </a>
+              </li>
+            )}
+          </ul>
+
           {searchable && (
-            <div className="relative hidden items-center md:flex">
+            <div className="relative hidden items-center xl:flex">
               <span className="pointer-events-none absolute left-3 text-mute">
                 <IconSearch />
               </span>
@@ -201,6 +239,36 @@ export function Header({
               Me poser une question
             </Button>
             <p className="mt-4 text-center text-[15px] text-slate">{CONTACT.whatsappDisplay}</p>
+
+            <ul className="mt-7 flex items-center justify-center gap-2">
+              {SOCIALS.map((r) => (
+                <li key={r.url}>
+                  <a
+                    href={r.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={r.label}
+                    className="grid size-11 place-items-center rounded-full bg-paper-2 text-ink-soft transition-colors hover:text-clay-deep"
+                  >
+                    <SocialIcon name={r.label} />
+                  </a>
+                </li>
+              ))}
+              {CONTACT.email && (
+                <li>
+                  <a
+                    href={`mailto:${CONTACT.email}`}
+                    aria-label={`Écrire à ${CONTACT.email}`}
+                    className="grid size-11 place-items-center rounded-full bg-paper-2 text-ink-soft transition-colors hover:text-clay-deep"
+                  >
+                    <IconMail />
+                  </a>
+                </li>
+              )}
+            </ul>
+            {CONTACT.email && (
+              <p className="mt-3 text-center text-[14.5px] text-slate">{CONTACT.email}</p>
+            )}
           </nav>
         </div>
       )}
