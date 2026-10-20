@@ -8,7 +8,7 @@ export const SITE = {
   name: "ambassa.exe",
   tagline: "Les outils IA qui font le boulot à ta place",
   /** Sert aux balises de partage. Mets l'adresse finale après la mise en ligne. */
-  url: "https://ambassaexe.netlify.app",
+  url: "https://ambassaexe.vercel.app",
   metaTitle: "ambassa.exe — Les outils IA qui font le boulot à ta place",
   metaDescription:
     "Ressources gratuites, guide complet pour maîtriser l'IA, formations et prestations. Outils IA, skills Claude et automatisation, expliqués en français.",

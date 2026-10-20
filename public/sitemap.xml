@@ -1,26 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Les pages principales. Les fiches produit et prestation sont découvertes
-     en suivant les liens depuis ces pages. Remplace le domaine après la mise
-     en ligne (voir GUIDE.md, section 6). -->
+<!-- Généré par scripts/sitemap.mjs. Ne pas modifier à la main. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ambassaexe.netlify.app/</loc>
+    <loc>https://ambassaexe.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ambassaexe.netlify.app/gratuit</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://ambassaexe.netlify.app/ebooks</loc>
+    <loc>https://ambassaexe.vercel.app/gratuit</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://ambassaexe.netlify.app/services</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://ambassaexe.vercel.app/guide-ultime</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/ebooks</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/formations</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/ressource/prompts-chat</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/ressource/jcode</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/ressource/prompt-motion</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/ressource/blink-et-lovable</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/produit/de-debutant-a-pro-de-l-ia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/produit/bibliotheque-ultime-prompts-chatgpt</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/produit/studio-pub-ia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/produit/500-prompts-video-ia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/produit/carnet-createur-digital</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/produit/500-debuts-histoires</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/produit/motion-design-avec-claude</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/produit/memo-prompt-parfait</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/produit/quel-outil-ia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/produit/10-erreurs-prompts</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/produit/60-prompts-pour-commencer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/service/application-site-web</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/service/presentation-projet</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/service/montage-video</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/service/avatar-ia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/service/visuels-produits</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/service/creation-ebook</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/service/publicite-video-ia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ambassaexe.vercel.app/formation/masterclass-avatar-ia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>

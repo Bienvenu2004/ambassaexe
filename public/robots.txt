@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ambassaexe.netlify.app/sitemap.xml
+Sitemap: https://ambassaexe.vercel.app/sitemap.xml

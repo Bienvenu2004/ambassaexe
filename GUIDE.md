@@ -406,7 +406,7 @@ C'est cette adresse que tu mets dans tes bios Facebook, Instagram, TikTok et Wha
 vraie, à deux endroits :
 
 - `src/data/site.ts`, champ `url` ;
-- `index.html`, partout où apparaît `https://ambassaexe.netlify.app`
+- `index.html`, partout où apparaît `https://ambassaexe.vercel.app`
   (`canonical`, `og:url`, `og:image`, `twitter:image`), ainsi que dans
   `public/robots.txt` et `public/sitemap.xml` (quatre adresses à corriger dans
   ce dernier).
