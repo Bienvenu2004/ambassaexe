@@ -64,7 +64,7 @@ function Destinations() {
         {DESTINATIONS.map((d) => {
           const clay = d.tone === "clay";
           return (
-            <li key={d.to} className="on-scroll py-2 sm:py-3">
+            <li key={d.to} className="py-2 sm:py-3">
               <Link
                 to={d.to}
                 className={`door group block rounded-[20px] px-6 py-8 sm:px-10 sm:py-11 ${
@@ -72,11 +72,11 @@ function Destinations() {
                 }`}
               >
                 <span className="grid items-center gap-x-10 gap-y-3.5 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)_auto]">
-                  <span className="door-in font-display text-[clamp(1.6rem,5.2vw,2.9rem)] leading-[1.02] font-semibold tracking-[-0.025em]">
+                  <span className="font-display text-[clamp(1.6rem,5.2vw,2.9rem)] leading-[1.02] font-semibold tracking-[-0.025em]">
                     {d.title}
                   </span>
                   <span
-                    className={`door-in text-[16px] leading-[1.55] sm:text-[17px] ${
+                    className={`text-[16px] leading-[1.55] sm:text-[17px] ${
                       clay ? "text-ink/80" : "text-ink/70 group-hover:text-paper/80"
                     }`}
                   >
@@ -84,7 +84,7 @@ function Destinations() {
                   </span>
                   <span
                     aria-hidden="true"
-                    className="door-in door-arrow hidden shrink-0 transition-transform duration-300 lg:block"
+                    className="door-arrow hidden shrink-0 transition-transform duration-300 lg:block"
                   >
                     <svg viewBox="0 0 24 24" fill="none" className="size-9">
                       <path
