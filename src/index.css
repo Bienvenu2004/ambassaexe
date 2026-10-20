@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+/* ───────────────────────────────────────────────────────────────────────────
+   ambassa.exe — système de design
+   Couleurs relevées sur la bannière : papier #F7F7F7, encre #1A1A1A,
+   terracotta #DA7754. Un seul accent, des gris tous tirés vers le chaud.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+@theme {
+  --color-paper: #f7f7f7;
+  --color-paper-2: #f0efed;
+  --color-card: #ffffff;
+  --color-ink: #1a1a1a;
+  --color-ink-soft: #3b3936;
+  --color-slate: #6e6a66;
+  --color-mute: #9c9792;
+  --color-line: #e2dfdb;
+  --color-line-soft: #ebe8e4;
+  --color-clay: #da7754;
+  --color-clay-deep: #a8492a;
+  --color-clay-wash: #f6e7e0;
+
+  --font-display: "Clash Display", "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Satoshi", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  ::selection {
+    background: var(--color-clay);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-clay);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* ── Mouvement ──────────────────────────────────────────────────────
+     Une seule langue : même courbe, mêmes durées, transform + opacity.
+     140–220 ms pour les contrôles, 520 ms pour les entrées de page.   */
+
+  .reveal {
+    animation: rise 0.52s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Révélé une fois au défilement, par un IntersectionObserver.
+     Sans JavaScript, le contenu reste visible : jamais caché par défaut. */
+  .on-scroll {
+    opacity: 1;
+  }
+  html.js .on-scroll {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  html.js .on-scroll.seen {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Chaque porte entre par parties : titre, puis texte, puis flèche. */
+  html.js .on-scroll .door-in {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  html.js .on-scroll.seen .door-in {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  html.js .on-scroll.seen .door-in:nth-of-type(2) { transition-delay: 80ms; }
+  html.js .on-scroll.seen .door-in:nth-of-type(3) { transition-delay: 150ms; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* Retour au doigt et à la souris sur tout ce qui se clique. */
+  .press {
+    transition:
+      transform 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 0.18s ease,
+      color 0.18s ease;
+  }
+  .press:hover { transform: translateY(-2px); }
+  .press:active { transform: translateY(0) scale(0.985); }
+
+  .card { transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1); }
+  .card:hover { transform: translateY(-3px); }
+  .card-media {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+  .card:hover .card-media { transform: scale(1.02); }
+
+  .door { transition: background-color 0.22s ease, color 0.22s ease; }
+  .door:hover .door-arrow { transform: translateX(8px); }
+  .door:active { transform: scale(0.995); }
+
+  /* ── Surfaces ───────────────────────────────────────────────────────
+     Les niveaux se distinguent par un pas de ton, jamais par un filet
+     ni par une ombre au repos.                                        */
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; }
+    html.js .on-scroll,
+    html.js .on-scroll.seen,
+    html.js .on-scroll .door-in,
+    html.js .on-scroll.seen .door-in { opacity: 1; transform: none; transition: none; }
+    .press:hover, .card:hover, .card:hover .card-media,
+    .door:hover .door-arrow, .door:active { transform: none; }
+  }
+}

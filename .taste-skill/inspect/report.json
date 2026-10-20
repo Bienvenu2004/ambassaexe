@@ -1,0 +1,1946 @@
+{
+ "url": "http://localhost:5177/ebooks",
+ "at": "2026-10-17T04:16:41.094Z",
+ "allow": [
+  "palette-terracotta",
+  "few-pictures",
+  "no-footage",
+  "size-count",
+  "still-page"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "timeout",
+   "screens": 8,
+   "filled": [
+    0.43,
+    0.51,
+    0.84,
+    0.65,
+    0.51,
+    0.46,
+    0.88,
+    0.92
+   ],
+   "motion": {
+    "elements": 3,
+    "css": 2,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 6469,
+     "screens": 7.2,
+     "words": 854,
+     "img": 17,
+     "video": 0,
+     "canvas": 0,
+     "svg": 36,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 17,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "de-debutant-a-pro-de-l-ia-sm.webp",
+      "bibliotheque-ultime-prompts-chatgpt-sm.webp",
+      "studio-pub-ia-sm.webp",
+      "de-debutant-a-pro-de-l-ia-sm.webp",
+      "studio-pub-ia-sm.webp",
+      "bibliotheque-ultime-prompts-chatgpt-sm.webp",
+      "memo-prompt-parfait-sm.webp",
+      "quel-outil-ia-sm.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Les autres guides",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 51.2,
+     "vw": 3.6,
+     "font": "Clash Display",
+     "weight": 600,
+     "tracking": -0.02,
+     "leading": 1.08,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.53,
+     "top": 182,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Les autres guides",
+     "words": 3,
+     "lines": 1,
+     "size": 51.2,
+     "font": "Clash Display"
+    },
+    "headings": [
+     {
+      "text": "Les autres guides",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 51.2,
+      "vw": 3.6,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.53,
+      "top": 182,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Les plus demandés",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 41.6,
+      "vw": 2.9,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 490,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Toutes les ressources",
+      "words": 3,
+      "chars": 21,
+      "lines": 1,
+      "size": 41.6,
+      "vw": 2.9,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 1519,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Plusieurs guides, un seul prix",
+      "words": 5,
+      "chars": 30,
+      "lines": 1,
+      "size": 41.6,
+      "vw": 2.9,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 3975,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Pack Complet IA",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 33.6,
+      "vw": 2.3,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.5,
+      "top": 4206,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "14 900 FCFA",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 30,
+      "vw": 2.1,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.11,
+      "top": 4417,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Avant d'acheter",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 41.6,
+      "vw": 2.9,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 4785,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Pas encore sûr ? Commence par une fiche gratuite.",
+      "words": 9,
+      "chars": 49,
+      "lines": 2,
+      "size": 38.4,
+      "vw": 2.7,
+      "font": "Clash Display",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.47,
+      "top": 5348,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Une question, un projet ? Écris-moi, je réponds sous 24 heures.",
+      "words": 11,
+      "chars": 63,
+      "lines": 3,
+      "size": 30.4,
+      "vw": 2.1,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.28,
+      "top": 5882,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "ambassa.exe",
+      "words": 1,
+      "chars": 11,
+      "lines": 1,
+      "size": 176,
+      "vw": 12.2,
+      "font": "Clash Display",
+      "weight": 700,
+      "tracking": -0.05,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 6226,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 3,
+     "over2Lines": 0,
+     "statements": 2,
+     "centered": 1,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Satoshi",
+       "share": 0.84,
+       "mono": false
+      },
+      {
+       "family": "Clash Display",
+       "share": 0.16,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      30,
+      34,
+      38,
+      42,
+      51,
+      176
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "Satoshi",
+      "size": 16,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 17.6
+     },
+     "measureChars": 29,
+     "max": {
+      "size": 176,
+      "vw": 12.2,
+      "font": "Clash Display",
+      "text": "ambassa.exe"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 4,
+     "microLabelShare": 0.013,
+     "microSamples": [
+      "À découvrir en premier",
+      "La bibliothèque",
+      "Les packs",
+      "Questions fréquentes"
+     ],
+     "upperShare": 0.04,
+     "centerShare": 0.09,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "À découvrir en premier",
+      "above": "Les plus demandés",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 457
+     },
+     {
+      "text": "La bibliothèque",
+      "above": "Toutes les ressources",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 1487
+     },
+     {
+      "text": "Les packs",
+      "above": "Plusieurs guides, un seul prix",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 3943
+     },
+     {
+      "text": "Pack",
+      "above": "Pack Complet IA",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 4162
+     },
+     {
+      "text": "Le Carnet du Créateur Digital",
+      "above": "14 900 FCFA",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 4368
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f7f7",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f0efed",
+       "top": 4126,
+       "hsl": {
+        "h": 40,
+        "s": 0.09,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#1a1a1a",
+       "top": 5268,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#191919",
+       "share": 0.35
+      },
+      {
+       "color": "#1a1a1a",
+       "share": 0.33
+      },
+      {
+       "color": "#6e6a66",
+       "share": 0.18
+      },
+      {
+       "color": "#da7754",
+       "share": 0.04
+      },
+      {
+       "color": "#3b3936",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": [
+      {
+       "text": "23 600 FCFA",
+       "ratio": 2.5,
+       "need": 4.5,
+       "size": 15,
+       "fg": "#9c9792",
+       "bg": "#f0efed"
+      },
+      {
+       "text": "10 ressources",
+       "ratio": 2.7,
+       "need": 4.5,
+       "size": 13,
+       "fg": "#9c9792",
+       "bg": "#f7f7f7"
+      },
+      {
+       "text": "14 900 FCFA",
+       "ratio": 2.7,
+       "need": 3,
+       "size": 30,
+       "fg": "#da7754",
+       "bg": "#f0efed"
+      },
+      {
+       "text": "À découvrir en premier",
+       "ratio": 2.9,
+       "need": 4.5,
+       "size": 13.5,
+       "fg": "#da7754",
+       "bg": "#f7f7f7"
+      },
+      {
+       "text": "La bibliothèque",
+       "ratio": 2.9,
+       "need": 4.5,
+       "size": 13.5,
+       "fg": "#da7754",
+       "bg": "#f7f7f7"
+      },
+      {
+       "text": "Les packs",
+       "ratio": 2.9,
+       "need": 4.5,
+       "size": 13.5,
+       "fg": "#da7754",
+       "bg": "#f7f7f7"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 16,
+     "inHero": 2,
+     "radius": "pill",
+     "height": 38,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Aller au contenu",
+      "Me contacter"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 2,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 18,
+     "boxRadius": 16,
+     "squareMedia": 0,
+     "roundedMedia": 13,
+     "mediaRadius": 16,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 609
+      },
+      {
+       "count": 10,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 1878
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.08
+     },
+     {
+      "type": "img",
+      "ratio": 0.08
+     },
+     {
+      "type": "img",
+      "ratio": 0.08
+     }
+    ],
+    "nav": {
+     "links": 6,
+     "fixed": true,
+     "height": 64,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "timeout",
+   "screens": 10,
+   "filled": [
+    0.49,
+    0.62,
+    0.56,
+    0.86,
+    0.86,
+    0.86,
+    0.62,
+    0.64,
+    0.92,
+    0.93
+   ],
+   "motion": {
+    "elements": 3,
+    "css": 2,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 9320,
+     "screens": 9.1,
+     "words": 848,
+     "img": 17,
+     "video": 0,
+     "canvas": 0,
+     "svg": 36,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 13,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "de-debutant-a-pro-de-l-ia-sm.webp",
+      "bibliotheque-ultime-prompts-chatgpt-sm.webp",
+      "studio-pub-ia-sm.webp",
+      "de-debutant-a-pro-de-l-ia-sm.webp",
+      "studio-pub-ia-sm.webp",
+      "bibliotheque-ultime-prompts-chatgpt-sm.webp",
+      "memo-prompt-parfait-sm.webp",
+      "quel-outil-ia-sm.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Les autres guides",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 46.1,
+     "vw": 6,
+     "font": "Clash Display",
+     "weight": 600,
+     "tracking": -0.02,
+     "leading": 1.08,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.94,
+     "top": 182,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Les autres guides",
+     "words": 3,
+     "lines": 1,
+     "size": 46.1,
+     "font": "Clash Display"
+    },
+    "headings": [
+     {
+      "text": "Les autres guides",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 46.1,
+      "vw": 6,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 182,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Les plus demandés",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 33.8,
+      "vw": 4.4,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 484,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Toutes les ressources",
+      "words": 3,
+      "chars": 21,
+      "lines": 1,
+      "size": 33.8,
+      "vw": 4.4,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 2240,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Plusieurs guides, un seul prix",
+      "words": 5,
+      "chars": 30,
+      "lines": 1,
+      "size": 33.8,
+      "vw": 4.4,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 6471,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Pack Complet IA",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 30.7,
+      "vw": 4,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.84,
+      "top": 6693,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "14 900 FCFA",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 30,
+      "vw": 3.9,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.21,
+      "top": 6901,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Avant d'acheter",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 33.8,
+      "vw": 4.4,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.88,
+      "top": 7269,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Pas encore sûr ? Commence par une fiche gratuite.",
+      "words": 9,
+      "chars": 49,
+      "lines": 2,
+      "size": 35.3,
+      "vw": 4.6,
+      "font": "Clash Display",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.81,
+      "top": 8050,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Une question, un projet ? Écris-moi, je réponds sous 24 heures.",
+      "words": 11,
+      "chars": 63,
+      "lines": 3,
+      "size": 26.1,
+      "vw": 3.4,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 8576,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "ambassa.exe",
+      "words": 1,
+      "chars": 11,
+      "lines": 1,
+      "size": 115.2,
+      "vw": 15,
+      "font": "Clash Display",
+      "weight": 700,
+      "tracking": -0.05,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 9125,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 3,
+     "over2Lines": 0,
+     "statements": 2,
+     "centered": 1,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Satoshi",
+       "share": 0.83,
+       "mono": false
+      },
+      {
+       "family": "Clash Display",
+       "share": 0.17,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      26,
+      30,
+      31,
+      34,
+      35,
+      46,
+      115
+     ],
+     "sizeCount": 14,
+     "notLoaded": [],
+     "body": {
+      "font": "Satoshi",
+      "size": 16,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 17.6
+     },
+     "measureChars": 39,
+     "max": {
+      "size": 115.2,
+      "vw": 15,
+      "font": "Clash Display",
+      "text": "ambassa.exe"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 4,
+     "microLabelShare": 0.013,
+     "microSamples": [
+      "À découvrir en premier",
+      "La bibliothèque",
+      "Les packs",
+      "Questions fréquentes"
+     ],
+     "upperShare": 0.04,
+     "centerShare": 0.09,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "À découvrir en premier",
+      "above": "Les plus demandés",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 452
+     },
+     {
+      "text": "La bibliothèque",
+      "above": "Toutes les ressources",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 2207
+     },
+     {
+      "text": "Les packs",
+      "above": "Plusieurs guides, un seul prix",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 6439
+     },
+     {
+      "text": "Pack",
+      "above": "Pack Complet IA",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 6649
+     },
+     {
+      "text": "Le Carnet du Créateur Digital",
+      "above": "14 900 FCFA",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 6852
+     },
+     {
+      "text": "Questions fréquentes",
+      "above": "Avant d'acheter",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 7237
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f7f7",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#ffffff",
+       "top": 595,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 1
+       }
+      },
+      {
+       "color": "#f0efed",
+       "top": 6613,
+       "hsl": {
+        "h": 40,
+        "s": 0.09,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#1a1a1a",
+       "top": 7970,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#191919",
+       "share": 0.35
+      },
+      {
+       "color": "#1a1a1a",
+       "share": 0.34
+      },
+      {
+       "color": "#6e6a66",
+       "share": 0.18
+      },
+      {
+       "color": "#da7754",
+       "share": 0.04
+      },
+      {
+       "color": "#f6f6f6",
+       "share": 0.03
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": [
+      {
+       "text": "10 ressources",
+       "ratio": 2.7,
+       "need": 4.5,
+       "size": 13,
+       "fg": "#9c9792",
+       "bg": "#f7f7f7"
+      },
+      {
+       "text": "À découvrir en premier",
+       "ratio": 2.9,
+       "need": 4.5,
+       "size": 13.5,
+       "fg": "#da7754",
+       "bg": "#f7f7f7"
+      },
+      {
+       "text": "La bibliothèque",
+       "ratio": 2.9,
+       "need": 4.5,
+       "size": 13.5,
+       "fg": "#da7754",
+       "bg": "#f7f7f7"
+      },
+      {
+       "text": "Découvrir",
+       "ratio": 3.1,
+       "need": 4.5,
+       "size": 13,
+       "fg": "#da7754",
+       "bg": "#ffffff"
+      },
+      {
+       "text": "Découvrir",
+       "ratio": 3.1,
+       "need": 4.5,
+       "size": 13,
+       "fg": "#da7754",
+       "bg": "#ffffff"
+      },
+      {
+       "text": "Découvrir",
+       "ratio": 3.1,
+       "need": 4.5,
+       "size": 13,
+       "fg": "#da7754",
+       "bg": "#ffffff"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 16,
+     "inHero": 2,
+     "radius": "pill",
+     "height": 38,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Aller au contenu",
+      "Me contacter"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 16,
+     "boxRadius": 16,
+     "squareMedia": 0,
+     "roundedMedia": 13,
+     "mediaRadius": 16,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 595
+      },
+      {
+       "count": 10,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 2590
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.19
+     },
+     {
+      "type": "img",
+      "ratio": 0.19
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 64,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "timeout",
+   "screens": 10,
+   "filled": [
+    0.59,
+    0.69,
+    0.48,
+    0.89,
+    0.92,
+    0.81,
+    0.76,
+    0.62,
+    0.89,
+    1
+   ],
+   "motion": {
+    "elements": 3,
+    "css": 2,
+    "transitions": 1,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 8243,
+     "screens": 9.8,
+     "words": 831,
+     "img": 17,
+     "video": 0,
+     "canvas": 0,
+     "svg": 36,
+     "sections": 6,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 13,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "de-debutant-a-pro-de-l-ia-sm.webp",
+      "bibliotheque-ultime-prompts-chatgpt-sm.webp",
+      "studio-pub-ia-sm.webp",
+      "de-debutant-a-pro-de-l-ia-sm.webp",
+      "studio-pub-ia-sm.webp",
+      "bibliotheque-ultime-prompts-chatgpt-sm.webp",
+      "memo-prompt-parfait-sm.webp",
+      "quel-outil-ia-sm.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 1,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Les autres guides",
+     "words": 3,
+     "chars": 17,
+     "lines": 1,
+     "size": 32,
+     "vw": 8.2,
+     "font": "Clash Display",
+     "weight": 600,
+     "tracking": -0.02,
+     "leading": 1.08,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.92,
+     "top": 188,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Les autres guides",
+     "words": 3,
+     "lines": 1,
+     "size": 32,
+     "font": "Clash Display"
+    },
+    "headings": [
+     {
+      "text": "Les autres guides",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 32,
+      "vw": 8.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 188,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Les plus demandés",
+      "words": 3,
+      "chars": 17,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 538,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Toutes les ressources",
+      "words": 3,
+      "chars": 21,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1844,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Plusieurs guides, un seul prix",
+      "words": 5,
+      "chars": 30,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 5039,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Pack Complet IA",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 24,
+      "vw": 6.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 5270,
+      "tag": "h3",
+      "kind": "heading"
+     },
+     {
+      "text": "14 900 FCFA",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 30,
+      "vw": 7.7,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": 0,
+      "leading": 1,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.42,
+      "top": 5585,
+      "tag": "span",
+      "kind": "heading"
+     },
+     {
+      "text": "Avant d'acheter",
+      "words": 2,
+      "chars": 15,
+      "lines": 1,
+      "size": 28,
+      "vw": 7.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.08,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 5950,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Pas encore sûr ? Commence par une fiche gratuite.",
+      "words": 9,
+      "chars": 49,
+      "lines": 3,
+      "size": 25.6,
+      "vw": 6.6,
+      "font": "Clash Display",
+      "weight": 700,
+      "tracking": -0.02,
+      "leading": 1.25,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "center",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 6794,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "Une question, un projet ? Écris-moi, je réponds sous 24 heures.",
+      "words": 11,
+      "chars": 63,
+      "lines": 2,
+      "size": 22.4,
+      "vw": 5.7,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 7324,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "ambassa.exe",
+      "words": 1,
+      "chars": 11,
+      "lines": 1,
+      "size": 58.5,
+      "vw": 15,
+      "font": "Clash Display",
+      "weight": 700,
+      "tracking": -0.05,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 8066,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 3,
+     "over2Lines": 1,
+     "statements": 2,
+     "centered": 1,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Satoshi",
+       "share": 0.83,
+       "mono": false
+      },
+      {
+       "family": "Clash Display",
+       "share": 0.17,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      19,
+      22,
+      24,
+      26,
+      28,
+      30,
+      32,
+      59
+     ],
+     "sizeCount": 13,
+     "notLoaded": [],
+     "body": {
+      "font": "Satoshi",
+      "size": 15.5,
+      "leading": 1.63,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 5
+     },
+     "measureChars": 17,
+     "max": {
+      "size": 58.5,
+      "vw": 15,
+      "font": "Clash Display",
+      "text": "ambassa.exe"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 4,
+     "microLabelShare": 0.013,
+     "microSamples": [
+      "À découvrir en premier",
+      "La bibliothèque",
+      "Les packs",
+      "Questions fréquentes"
+     ],
+     "upperShare": 0.04,
+     "centerShare": 0.09,
+     "smallText": 0
+    },
+    "eyebrows": [
+     {
+      "text": "À découvrir en premier",
+      "above": "Les plus demandés",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 506
+     },
+     {
+      "text": "La bibliothèque",
+      "above": "Toutes les ressources",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 1811
+     },
+     {
+      "text": "Les packs",
+      "above": "Plusieurs guides, un seul prix",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 5006
+     },
+     {
+      "text": "500 Débuts d'Histoires",
+      "above": "14 900 FCFA",
+      "upper": false,
+      "tracked": false,
+      "mono": false,
+      "pill": false,
+      "size": 14,
+      "top": 5536
+     },
+     {
+      "text": "Questions fréquentes",
+      "above": "Avant d'acheter",
+      "upper": true,
+      "tracked": true,
+      "mono": false,
+      "pill": false,
+      "size": 13.5,
+      "top": 5918
+     }
+    ],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f7f7",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f0efed",
+       "top": 5201,
+       "hsl": {
+        "h": 40,
+        "s": 0.09,
+        "l": 0.94
+       }
+      },
+      {
+       "color": "#1a1a1a",
+       "top": 6738,
+       "hsl": {
+        "h": 0,
+        "s": 0,
+        "l": 0.1
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#191919",
+       "share": 0.36
+      },
+      {
+       "color": "#1a1a1a",
+       "share": 0.34
+      },
+      {
+       "color": "#6e6a66",
+       "share": 0.18
+      },
+      {
+       "color": "#f6f6f6",
+       "share": 0.03
+      },
+      {
+       "color": "#f7f7f7",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#ffffff",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 1
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": [
+      {
+       "text": "10 ressources",
+       "ratio": 2.7,
+       "need": 4.5,
+       "size": 13,
+       "fg": "#9c9792",
+       "bg": "#f7f7f7"
+      },
+      {
+       "text": "À découvrir en premier",
+       "ratio": 2.9,
+       "need": 4.5,
+       "size": 13.5,
+       "fg": "#da7754",
+       "bg": "#f7f7f7"
+      },
+      {
+       "text": "La bibliothèque",
+       "ratio": 2.9,
+       "need": 4.5,
+       "size": 13.5,
+       "fg": "#da7754",
+       "bg": "#f7f7f7"
+      },
+      {
+       "text": "Les packs",
+       "ratio": 2.9,
+       "need": 4.5,
+       "size": 13.5,
+       "fg": "#da7754",
+       "bg": "#f7f7f7"
+      }
+     ]
+    },
+    "buttons": {
+     "count": 15,
+     "inHero": 1,
+     "radius": "pill",
+     "height": 38,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Aller au contenu"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 18,
+     "boxRadius": 16,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": [
+      {
+       "count": 3,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 670
+      },
+      {
+       "count": 10,
+       "iconTopped": false,
+       "rounded": true,
+       "top": 2226
+      }
+     ]
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.09
+     },
+     {
+      "type": "img",
+      "ratio": 0.09
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 64,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": []
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "FAIL",
+   "id": "eyebrow",
+   "width": 1440,
+   "message": "5 eyebrow/kicker label(s) above headings: \"À découvrir en premier\" above \"Les plus demandés\"; \"La bibliothèque\" above \"Toutes les ressources\"; \"Les packs\" above \"Plusieurs guides, un seul prix\"; \"Pack\" above \"Pack Complet IA\"; \"Le Carnet du Créateur Digital\" above \"14 900 FCFA\"",
+   "fix": "Delete them. If the label carried real information, fold it into the headline or the supporting sentence.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "micro-label",
+   "width": 1440,
+   "message": "4 tiny uppercase letter-spaced labels (e.g. \"À découvrir en premier\", \"La bibliothèque\", \"Les packs\", \"Questions fréquentes\").",
+   "fix": "Use sentence-case text at a readable size, or delete the label.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "WARN",
+   "id": "outlined-box",
+   "width": 1440,
+   "message": "2 box(es) drawn with a 1px outline.",
+   "fix": "Prefer a filled surface or no box."
+  },
+  {
+   "level": "WARN",
+   "id": "card-rows",
+   "width": 1440,
+   "message": "2 rows of identical boxed cards.",
+   "fix": "Vary the composition; not every section is a card grid.",
+   "alsoAt": [
+    768,
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "contrast",
+   "width": 1440,
+   "message": "Unreadable text: \"23 600 FCFA\" 2.5:1 (#9c9792 on #f0efed)",
+   "fix": "Raise contrast to at least 4.5:1 for text, 3:1 for large display."
+  },
+  {
+   "level": "FAIL",
+   "id": "focal-point",
+   "width": 1440,
+   "message": "The first screen has no dominant element: the largest type is 51.2px (3.6vw) and no single picture holds a third of the viewport.",
+   "fix": "Make one thing lead: the headline at display size, or one large picture. A grid of many small pictures is not one thing; in blind tests jurors marked a first screen without a headline down every time. On the strongest studied sites the largest type has a median of 8.4vw."
+  },
+  {
+   "level": "WARN",
+   "id": "contrast",
+   "width": 768,
+   "message": "Low-contrast text: \"10 ressources\" 2.7:1 needs 4.5:1; \"À découvrir en premier\" 2.9:1 needs 4.5:1; \"La bibliothèque\" 2.9:1 needs 4.5:1; \"Découvrir\" 3.1:1 needs 4.5:1",
+   "fix": "Darken or lighten the text colour.",
+   "alsoAt": [
+    390
+   ]
+  },
+  {
+   "level": "FAIL",
+   "id": "headline-lines",
+   "width": 390,
+   "message": "1 headline(s) wrap past two lines at 390px: \"Pas encore sûr ? Commence par une fiche gratuite\" → 3 lines (9 words, 25.6px)",
+   "fix": "Cut words first (a headline is a title, not a sentence). Then give it a wider measure. Lower the size only as a last resort and never below the scale you chose. A real statement paragraph belongs in a <p> or <blockquote> at 24px or less."
+  },
+  {
+   "level": "WARN",
+   "id": "grey-body",
+   "width": 390,
+   "message": "The running text is a soft grey on its ground (5:1).",
+   "fix": "Set body copy in the full ink (7:1 or more). Keep the muted ink for secondary notes; pages read thin and unfinished when everything is grey."
+  },
+  {
+   "level": "WARN",
+   "id": "side-scroll",
+   "width": 390,
+   "message": "1 row(s) scroll sideways with content past their edge.",
+   "fix": "Jurors and most visitors read a row cut at the edge as clipped, not as scrollable. Wrap it onto more lines, or end it inside the grid."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "D:\\Chariow\\boutique\\.taste-skill\\inspect\\desktop-fold.jpg",
+   "pages": [
+    "D:\\Chariow\\boutique\\.taste-skill\\inspect\\desktop-page-01.jpg",
+    "D:\\Chariow\\boutique\\.taste-skill\\inspect\\desktop-page-02.jpg"
+   ]
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "D:\\Chariow\\boutique\\.taste-skill\\inspect\\tablet-fold.jpg",
+   "pages": [
+    "D:\\Chariow\\boutique\\.taste-skill\\inspect\\tablet-page-01.jpg",
+    "D:\\Chariow\\boutique\\.taste-skill\\inspect\\tablet-page-02.jpg"
+   ]
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "D:\\Chariow\\boutique\\.taste-skill\\inspect\\mobile-fold.jpg",
+   "pages": [
+    "D:\\Chariow\\boutique\\.taste-skill\\inspect\\mobile-page-01.jpg",
+    "D:\\Chariow\\boutique\\.taste-skill\\inspect\\mobile-page-02.jpg"
+   ]
+  }
+ ]
+}

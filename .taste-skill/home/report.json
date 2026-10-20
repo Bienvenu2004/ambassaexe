@@ -1,0 +1,1231 @@
+{
+ "url": "http://localhost:5177/",
+ "at": "2026-10-20T15:19:01.522Z",
+ "allow": [
+  "palette-terracotta",
+  "few-pictures",
+  "no-footage",
+  "size-count",
+  "still-page"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.51,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 21,
+    "css": 4,
+    "transitions": 17,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 2247,
+     "screens": 2.5,
+     "words": 195,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 11,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "portrait-sm.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Je code. L'IA m'assiste.",
+     "words": 4,
+     "chars": 24,
+     "lines": 2,
+     "size": 96,
+     "vw": 6.7,
+     "font": "Clash Display",
+     "weight": 700,
+     "tracking": -0.04,
+     "leading": 0.92,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "left",
+     "widthRatio": 0.43,
+     "top": 216,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Je code. L'IA m'assiste.",
+     "words": 4,
+     "lines": 2,
+     "size": 96,
+     "font": "Clash Display"
+    },
+    "headings": [
+     {
+      "text": "Je code. L'IA m'assiste.",
+      "words": 4,
+      "chars": 24,
+      "lines": 2,
+      "size": 96,
+      "vw": 6.7,
+      "font": "Clash Display",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.43,
+      "top": 216,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Ressources gratuites",
+      "words": 2,
+      "chars": 20,
+      "lines": 2,
+      "size": 46.4,
+      "vw": 3.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 810,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Le Guide Ultime",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 46.4,
+      "vw": 3.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 1033,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Prestations de services",
+      "words": 3,
+      "chars": 23,
+      "lines": 2,
+      "size": 46.4,
+      "vw": 3.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 1208,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Formations",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 46.4,
+      "vw": 3.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.32,
+      "top": 1417,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Une question, un projet ? Écris-moi, je réponds sous 24 heures.",
+      "words": 11,
+      "chars": 63,
+      "lines": 3,
+      "size": 30.4,
+      "vw": 2.1,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.28,
+      "top": 1659,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "ambassa.exe",
+      "words": 1,
+      "chars": 11,
+      "lines": 1,
+      "size": 176,
+      "vw": 12.2,
+      "font": "Clash Display",
+      "weight": 700,
+      "tracking": -0.05,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.77,
+      "top": 2004,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 3,
+     "over2Lines": 0,
+     "statements": 6,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Satoshi",
+       "share": 0.84,
+       "mono": false
+      },
+      {
+       "family": "Clash Display",
+       "share": 0.16,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      19,
+      30,
+      46,
+      96,
+      176
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Satoshi",
+      "size": 17,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 17.4
+     },
+     "measureChars": 44,
+     "max": {
+      "size": 176,
+      "vw": 12.2,
+      "font": "Clash Display",
+      "text": "ambassa.exe"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.07,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f7f7",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f0efed",
+       "top": 730,
+       "hsl": {
+        "h": 40,
+        "s": 0.09,
+        "l": 0.94
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1a1a1a",
+       "share": 0.83
+      },
+      {
+       "color": "#6e6a66",
+       "share": 0.08
+      },
+      {
+       "color": "#3b3936",
+       "share": 0.03
+      },
+      {
+       "color": "#f7f7f7",
+       "share": 0.03
+      },
+      {
+       "color": "#a8492a",
+       "share": 0.02
+      }
+     ],
+     "button": {
+      "bg": "#1a1a1a",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 0.1
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 5,
+     "inHero": 3,
+     "radius": "pill",
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Aller au contenu",
+      "Me contacter",
+      "Commencer ici"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 5,
+     "boxRadius": 20,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 33554400,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.14
+     }
+    ],
+    "nav": {
+     "links": 6,
+     "fixed": true,
+     "height": 64,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "clash display",
+     "satoshi"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.4,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 17,
+    "css": 4,
+    "transitions": 13,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2723,
+     "screens": 2.7,
+     "words": 189,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 11,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "portrait-sm.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Je code. L'IA m'assiste.",
+     "words": 4,
+     "chars": 24,
+     "lines": 2,
+     "size": 73.7,
+     "vw": 9.6,
+     "font": "Clash Display",
+     "weight": 700,
+     "tracking": -0.04,
+     "leading": 0.92,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.91,
+     "top": 166,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Je code. L'IA m'assiste.",
+     "words": 4,
+     "lines": 2,
+     "size": 73.7,
+     "font": "Clash Display"
+    },
+    "headings": [
+     {
+      "text": "Je code. L'IA m'assiste.",
+      "words": 4,
+      "chars": 24,
+      "lines": 2,
+      "size": 73.7,
+      "vw": 9.6,
+      "font": "Clash Display",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.91,
+      "top": 166,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Ressources gratuites",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 39.9,
+      "vw": 5.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 1048,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Le Guide Ultime",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 39.9,
+      "vw": 5.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 1242,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Prestations de services",
+      "words": 3,
+      "chars": 23,
+      "lines": 1,
+      "size": 39.9,
+      "vw": 5.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 1461,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Formations",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 39.9,
+      "vw": 5.2,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.83,
+      "top": 1680,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Une question, un projet ? Écris-moi, je réponds sous 24 heures.",
+      "words": 11,
+      "chars": 63,
+      "lines": 3,
+      "size": 26.1,
+      "vw": 3.4,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.44,
+      "top": 1980,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "ambassa.exe",
+      "words": 1,
+      "chars": 11,
+      "lines": 1,
+      "size": 115.2,
+      "vw": 15,
+      "font": "Clash Display",
+      "weight": 700,
+      "tracking": -0.05,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.94,
+      "top": 2529,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 3,
+     "over2Lines": 0,
+     "statements": 6,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Satoshi",
+       "share": 0.83,
+       "mono": false
+      },
+      {
+       "family": "Clash Display",
+       "share": 0.17,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      19,
+      26,
+      40,
+      74,
+      115
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Satoshi",
+      "size": 17,
+      "leading": 1.55,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 17.4
+     },
+     "measureChars": 44,
+     "max": {
+      "size": 115.2,
+      "vw": 15,
+      "font": "Clash Display",
+      "text": "ambassa.exe"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.07,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f7f7",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f0efed",
+       "top": 968,
+       "hsl": {
+        "h": 40,
+        "s": 0.09,
+        "l": 0.94
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1a1a1a",
+       "share": 0.86
+      },
+      {
+       "color": "#6e6a66",
+       "share": 0.08
+      },
+      {
+       "color": "#f7f7f7",
+       "share": 0.03
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.01
+      },
+      {
+       "color": "#a8492a",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#1a1a1a",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 0.1
+      },
+      "fg": "#1a1a1a"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 5,
+     "inHero": 3,
+     "radius": "pill",
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Aller au contenu",
+      "Me contacter",
+      "Commencer ici"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 5,
+     "boxRadius": 20,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 33554400,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.15
+     }
+    ],
+    "nav": {
+     "links": 2,
+     "fixed": true,
+     "height": 64,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "clash display",
+     "satoshi"
+    ]
+   },
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.48,
+    1,
+    1,
+    1
+   ],
+   "motion": {
+    "elements": 17,
+    "css": 4,
+    "transitions": 13,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 2658,
+     "screens": 3.1,
+     "words": 187,
+     "img": 1,
+     "video": 0,
+     "canvas": 0,
+     "svg": 11,
+     "sections": 1,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 1,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [
+      "portrait-sm.webp"
+     ],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": []
+    },
+    "hero": {
+     "text": "Je code. L'IA m'assiste.",
+     "words": 4,
+     "chars": 24,
+     "lines": 2,
+     "size": 48,
+     "vw": 12.3,
+     "font": "Clash Display",
+     "weight": 700,
+     "tracking": -0.04,
+     "leading": 0.92,
+     "upper": false,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.92,
+     "top": 164,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "Je code. L'IA m'assiste.",
+     "words": 4,
+     "lines": 2,
+     "size": 48,
+     "font": "Clash Display"
+    },
+    "headings": [
+     {
+      "text": "Je code. L'IA m'assiste.",
+      "words": 4,
+      "chars": 24,
+      "lines": 2,
+      "size": 48,
+      "vw": 12.3,
+      "font": "Clash Display",
+      "weight": 700,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 164,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "Ressources gratuites",
+      "words": 2,
+      "chars": 20,
+      "lines": 1,
+      "size": 25.6,
+      "vw": 6.6,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 906,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Le Guide Ultime",
+      "words": 3,
+      "chars": 15,
+      "lines": 1,
+      "size": 25.6,
+      "vw": 6.6,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 1100,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Prestations de services",
+      "words": 3,
+      "chars": 23,
+      "lines": 1,
+      "size": 25.6,
+      "vw": 6.6,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 1295,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Formations",
+      "words": 1,
+      "chars": 10,
+      "lines": 1,
+      "size": 25.6,
+      "vw": 6.6,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.025,
+      "leading": 1.02,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.79,
+      "top": 1489,
+      "tag": "span",
+      "kind": "statement"
+     },
+     {
+      "text": "Une question, un projet ? Écris-moi, je réponds sous 24 heures.",
+      "words": 11,
+      "chars": 63,
+      "lines": 2,
+      "size": 22.4,
+      "vw": 5.7,
+      "font": "Clash Display",
+      "weight": 600,
+      "tracking": -0.02,
+      "leading": 1.1,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1740,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "ambassa.exe",
+      "words": 1,
+      "chars": 11,
+      "lines": 1,
+      "size": 58.5,
+      "vw": 15,
+      "font": "Clash Display",
+      "weight": 700,
+      "tracking": -0.05,
+      "leading": 0.8,
+      "upper": false,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 2482,
+      "tag": "p",
+      "kind": "statement"
+     }
+    ],
+    "headingSummary": {
+     "count": 7,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 6,
+     "centered": 0,
+     "medianWords": 3,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Satoshi",
+       "share": 0.83,
+       "mono": false
+      },
+      {
+       "family": "Clash Display",
+       "share": 0.17,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      19,
+      22,
+      26,
+      48,
+      59
+     ],
+     "sizeCount": 10,
+     "notLoaded": [],
+     "body": {
+      "font": "Satoshi",
+      "size": 16,
+      "leading": 1.38,
+      "weight": 400,
+      "tracking": 0,
+      "contrast": 14.4
+     },
+     "measureChars": 42,
+     "max": {
+      "size": 58.5,
+      "vw": 15,
+      "font": "Clash Display",
+      "text": "ambassa.exe"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0,
+     "centerShare": 0.07,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#f7f7f7",
+     "bodyBgHsl": {
+      "h": 0,
+      "s": 0,
+      "l": 0.97
+     },
+     "dark": false,
+     "sectionBgs": [
+      {
+       "color": "#f0efed",
+       "top": 850,
+       "hsl": {
+        "h": 40,
+        "s": 0.09,
+        "l": 0.94
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#1a1a1a",
+       "share": 0.85
+      },
+      {
+       "color": "#6e6a66",
+       "share": 0.08
+      },
+      {
+       "color": "#f7f7f7",
+       "share": 0.03
+      },
+      {
+       "color": "#ffffff",
+       "share": 0.01
+      },
+      {
+       "color": "#a8492a",
+       "share": 0.01
+      }
+     ],
+     "button": {
+      "bg": "#1a1a1a",
+      "hsl": {
+       "h": 0,
+       "s": 0,
+       "l": 0.1
+      },
+      "fg": "#f7f7f7"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 4,
+     "inHero": 2,
+     "radius": "pill",
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Aller au contenu",
+      "Commencer ici"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 5,
+     "boxRadius": 20,
+     "squareMedia": 0,
+     "roundedMedia": 1,
+     "mediaRadius": 33554400,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [
+     {
+      "type": "img",
+      "ratio": 0.24
+     }
+    ],
+    "nav": {
+     "links": 1,
+     "fixed": true,
+     "height": 64,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "clash display",
+     "satoshi"
+    ]
+   },
+   "consoleErrors": []
+  }
+ ],
+ "findings": [],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "D:\\Chariow\\boutique\\.taste-skill\\home\\desktop-fold.jpg",
+   "pages": [
+    "D:\\Chariow\\boutique\\.taste-skill\\home\\desktop-page-01.jpg"
+   ]
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "D:\\Chariow\\boutique\\.taste-skill\\home\\tablet-fold.jpg",
+   "pages": [
+    "D:\\Chariow\\boutique\\.taste-skill\\home\\tablet-page-01.jpg"
+   ]
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "D:\\Chariow\\boutique\\.taste-skill\\home\\mobile-fold.jpg",
+   "pages": [
+    "D:\\Chariow\\boutique\\.taste-skill\\home\\mobile-page-01.jpg"
+   ]
+  }
+ ]
+}
