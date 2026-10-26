@@ -44,6 +44,9 @@ export const HERO = {
   subtitle:
     "Ingénieur logiciel. Je construis des applications et des sites web, et je teste les outils d'IA avant de te les conseiller.",
   portraitAlt: "Ambassa, de face, sous une lumière chaude",
+  /** Le texte sous « Bienvenue » sur la page d'accueil. */
+  intro:
+    "Ingénieur logiciel de formation. Je teste les outils d'IA et je garde ceux qui font vraiment gagner du temps. Ici, tu trouves mes ressources pour avancer seul, et mes services si tu préfères qu'on le fasse ensemble.",
 };
 
 /** false masque les formations : liens, menu, pied de page, pages et sitemap. */

@@ -32,7 +32,7 @@ export function Home() {
         <h1 className="mt-6 font-display text-[22px] font-bold text-ink">
           Bienvenue sur {SITE.name}
         </h1>
-        <p className="mt-2 text-[16px] text-ink-soft">{SITE.tagline}</p>
+        <p className="mt-3 text-[16px] leading-[1.55] text-ink-soft">{HERO.intro}</p>
 
         <p className="mt-6 text-[14px] text-slate">Retrouve-moi aussi sur</p>
         <ul className="mt-1 flex items-center gap-1">
