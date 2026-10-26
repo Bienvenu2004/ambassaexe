@@ -1,5 +1,5 @@
 import { useId, useState } from "react";
-import { CONTACT, LEGAL, SOCIALS } from "../data/site";
+import { CONTACT, LEGAL, SHOW_FORMATIONS, SOCIALS } from "../data/site";
 import { SERVICES } from "../data/services";
 import { SITE } from "../data/site";
 import { Link } from "../lib/router";
@@ -124,13 +124,15 @@ export function Footer() {
             <p className="font-display text-[15px] font-semibold text-ink">Le site</p>
             <ul className="mt-4 space-y-2.5">
               {[
-                ["Ressources gratuites", "/gratuit"],
+                ["Ressources et outils", "/gratuit"],
                 ["Le Guide Ultime", "/guide-ultime"],
                 ["Prestations de services", "/services"],
                 ["Formations", "/formations"],
                 ["Les autres guides", "/ebooks"],
                 ["Questions fréquentes", "/faq"],
-              ].map(([label, to]) => (
+              ]
+                .filter(([, to]) => SHOW_FORMATIONS || to !== "/formations")
+                .map(([label, to]) => (
                 <li key={to}>
                   <Link
                     to={to}
@@ -158,7 +160,10 @@ export function Footer() {
               ))}
             </ul>
             {SOCIALS.length > 0 && (
-              <ul className="mt-7 flex flex-wrap items-center gap-2">
+              <p className="mt-7 text-[14px] text-slate">Retrouve-moi aussi sur</p>
+            )}
+            {SOCIALS.length > 0 && (
+              <ul className="mt-2 flex flex-wrap items-center gap-2">
                 {SOCIALS.map((x) => (
                   <li key={x.url}>
                     <a

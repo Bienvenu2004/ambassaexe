@@ -1,20 +1,8 @@
 import { useEffect } from "react";
 import { GUIDE, guideItems, guideStats } from "../data/offer";
 import { CONTACT, SITE } from "../data/site";
-import { formatPrice } from "../lib/format";
-import { Link } from "../lib/router";
 import { setMeta } from "../lib/seo";
-import {
-  Button,
-  Chip,
-  IconArrow,
-  IconCheck,
-  IconCross,
-  IconWhatsApp,
-  Section,
-  SectionTitle,
-} from "../components/ui";
-import { FinalCta } from "../components/Footer";
+import { Button, IconArrow, IconWhatsApp, Section, SectionTitle } from "../components/ui";
 
 export function GuidePage() {
   const items = guideItems();
@@ -23,7 +11,7 @@ export function GuidePage() {
   useEffect(() => {
     setMeta(
       `${GUIDE.title} — ${SITE.name}`,
-      "De débutant à pro de l'IA : la méthode complète, 1 500 prompts ChatGPT classés, 500 prompts visuels pour vendre et l'atelier de motion design. Quatre guides en un seul achat, en français.",
+      "4 ressources en un seul achat pour apprendre à prompter et coder avec l'IA, créer des visuels publicitaires sans graphiste et faire du motion design avec Claude.",
     );
     return () => setMeta(SITE.metaTitle, SITE.metaDescription);
   }, []);
@@ -58,7 +46,7 @@ export function GuidePage() {
 
               <dl className="mt-9 grid max-w-md grid-cols-3 gap-4 rounded-[18px] bg-paper-2 px-5 py-6">
                 {[
-                  [stats.count.toString(), "guides réunis"],
+                  [stats.count.toString(), "ressources"],
                   [stats.pages.toString(), "pages"],
                   [stats.prompts.toLocaleString("fr-FR"), "prompts"],
                 ].map(([v, l]) => (
@@ -72,14 +60,11 @@ export function GuidePage() {
                 ))}
               </dl>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8">
                 <Acheter />
-                <Button href="#contenu-detail" variant="outline" size="lg">
-                  Ce qu'il y a dedans
-                </Button>
               </div>
               <p className="mt-4 text-[15px] text-slate">
-                Paiement unique · Accès immédiat après validation · Fichiers PDF à garder à vie
+                Paiement unique · Accès immédiat · Fichiers PDF à garder à vie
               </p>
             </div>
 
@@ -115,145 +100,53 @@ export function GuidePage() {
         </div>
       </section>
 
-      {/* ── Pourquoi ── */}
+      {/* ── Ce qu'on y apprend ── */}
       <Section className="py-14 sm:py-20">
         <SectionTitle
-          title="Pourquoi ces quatre guides vont ensemble"
-          lead="Pris séparément, chacun règle un problème. Ensemble, ils couvrent le cycle complet : comprendre, produire, vendre."
+          title="Trois compétences rentables"
+          lead="Chacune te fait économiser un prestataire, ou devient un service que tu vends."
         />
-        <div className="mt-9 grid gap-4 sm:gap-5 lg:grid-cols-2">
-          {GUIDE.arguments.map((a, i) => (
-            <article
-              key={a.title}
-              className="on-scroll rounded-[20px] bg-card p-6 sm:p-7"
-              style={{ animationDelay: `${i * 70}ms` }}
-            >
-              <h3 className="mt-3 font-display text-[18px] leading-snug font-semibold text-ink">
-                {a.title}
+        <div className="mt-9 grid gap-4 sm:gap-5 lg:grid-cols-3">
+          {GUIDE.skills.map((s) => (
+            <article key={s.title} className="on-scroll flex flex-col rounded-[20px] bg-card p-6 sm:p-7">
+              <h3 className="font-display text-[20px] leading-snug font-semibold text-ink">
+                {s.title}
               </h3>
-              <p className="mt-2.5 text-[16px] leading-relaxed text-ink/75">{a.text}</p>
+              <p className="mt-2.5 text-[16px] leading-relaxed text-ink/75">{s.text}</p>
+              <p className="mt-auto pt-5 text-[15px] leading-snug font-semibold text-clay-deep">
+                {s.gain}
+              </p>
             </article>
           ))}
         </div>
       </Section>
 
-      {/* ── Le détail de chaque guide ── */}
-      <Section id="contenu-detail" className="scroll-mt-24 py-14 sm:py-20">
-        <SectionTitle
-          title="Les quatre guides, un par un"
-          lead="Chacun existe aussi séparément. Réunis, ils reviennent moins cher."
-        />
-
-        <div className="mt-12 space-y-16 sm:space-y-24">
-          {items.map((p, i) => (
-            <article
-              key={p.id}
-              /* Une ligne sur deux inverse l'image et le texte. Le gabarit de
-                 colonnes s'inverse avec, sinon le texte hérite des 190 px. */
-              className={`on-scroll grid gap-7 sm:gap-10 lg:items-start ${
-                i % 2
-                  ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,190px)] lg:[&>figure]:order-2"
-                  : "lg:grid-cols-[minmax(0,190px)_minmax(0,1fr)]"
-              }`}
-            >
-              <figure className="mx-auto w-full max-w-[220px] lg:max-w-none">
-                <Link to={`/produit/${p.slug}`} ariaLabel={p.title}>
-                  {p.coverImage && (
-                    <img
-                      src={`/covers/${p.coverImage}.webp`}
-                      alt={`Couverture — ${p.title}`}
-                      width={900}
-                      height={1273}
-                      loading="lazy"
-                      decoding="async" className="aspect-[1/1.414] w-full rounded-xl object-cover transition-transform duration-300 hover:-translate-y-1.5"
-                    />
-                  )}
-                </Link>
-              </figure>
-
-              <div>
-                <h3 className="max-w-[26ch] font-display text-[clamp(1.35rem,3.4vw,1.9rem)] leading-[1.05] font-semibold tracking-[-0.02em] text-ink">
-                  {p.title}
-                </h3>
-                {p.subtitle && (
-                  <p className="mt-1.5 text-[14.5px] text-clay-deep">{p.subtitle}</p>
-                )}
-
-                <p className="mt-3 flex flex-wrap items-center gap-2">
-                  {p.specs?.slice(0, 3).map((x) => (
-                    <Chip key={x.label} tone="outline">
-                      {x.value} {x.label.toLowerCase()}
-                    </Chip>
-                  ))}
-                </p>
-
-                <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
-                  <span className="text-[15px] text-slate">
-                    Vendu seul&nbsp;: {formatPrice(p.price, p.currency)}
-                  </span>
-                  <Link
-                    to={`/produit/${p.slug}`}
-                    className="inline-flex items-center gap-1.5 text-[13.5px] font-bold text-ink hover:text-clay-deep"
-                  >
-                    Voir la fiche
-                    <IconArrow />
-                  </Link>
-                </div>
-
-                <p className="mt-5 max-w-[62ch] text-[17px] leading-[1.7] text-ink/85">
-                  {p.longDescription?.[0] ?? p.description}
-                </p>
-
-                {p.contents && (
-                  <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
-                    {p.contents.slice(0, 6).map((c) => (
-                      <li key={c} className="flex gap-2.5 text-[16px] leading-snug text-ink/80">
-                        <IconCheck />
-                        <span>{c}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-              </div>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      {/* ── Pour qui ── */}
+      {/* ── Les ressources incluses ── */}
       <Section className="py-14 sm:py-20">
-        <div className="grid gap-5 lg:grid-cols-2">
-          <div className="rounded-[22px] bg-card p-6 sm:p-8">
-            <h2 className="rule-clay font-display text-[20px] font-semibold text-ink">
-              C'est pour toi si…
-            </h2>
-            <ul className="mt-6 space-y-3">
-              {GUIDE.forWho.map((t) => (
-                <li key={t} className="on-scroll flex gap-3 text-[16px] leading-snug text-ink/80">
-                  <IconCheck />
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="rounded-[22px] bg-paper-2 p-6 sm:p-8">
-            <h2 className="font-display text-[20px] font-semibold text-ink">
-              Ce n'est pas pour toi si…
-            </h2>
-            <ul className="mt-6 space-y-3">
-              {GUIDE.notForWho.map((t) => (
-                <li key={t} className="flex gap-3 text-[14.5px] leading-snug text-slate">
-                  <IconCross />
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-[15px] leading-relaxed text-slate">
-              Mieux vaut le savoir avant d'acheter qu'après.
-            </p>
-          </div>
-        </div>
+        <SectionTitle title={`Les ${stats.count} ressources incluses`} />
+        <ul className="mt-9 grid grid-cols-2 gap-5 lg:grid-cols-4">
+          {items.map((p) => (
+            <li key={p.id} className="on-scroll">
+              {p.coverImage && (
+                <img
+                  src={`/covers/${p.coverImage}-sm.webp`}
+                  alt={`Couverture — ${p.title}`}
+                  width={420}
+                  height={594}
+                  loading="lazy"
+                  decoding="async"
+                  className="aspect-[1/1.414] w-full rounded-xl object-cover"
+                />
+              )}
+              <h3 className="mt-4 font-display text-[17px] leading-snug font-semibold text-ink">
+                {p.title}
+              </h3>
+              {p.subtitle && (
+                <p className="mt-1 text-[14.5px] leading-snug text-slate">{p.subtitle}</p>
+              )}
+            </li>
+          ))}
+        </ul>
       </Section>
 
       {/* ── Achat ── */}
@@ -269,21 +162,12 @@ export function GuidePage() {
           />
           <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
             <div>
-              <h2 className="mt-4 max-w-xl font-display text-[clamp(1.7rem,4.6vw,2.6rem)] leading-tight font-bold">
-                Les {stats.count} guides, {stats.pages} pages,{" "}
-                {stats.prompts.toLocaleString("fr-FR")} prompts.
+              <h2 className="max-w-xl font-display text-[clamp(1.7rem,4.6vw,2.6rem)] leading-tight font-bold">
+                {stats.count} ressources, 3 compétences, un seul achat.
               </h2>
               <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-paper/70">
-                Le prix et les moyens de paiement disponibles chez toi s'affichent sur la page
-                de commande. Paiement unique, téléchargement immédiat, fichiers à garder.
+                Paiement unique, téléchargement immédiat, fichiers à garder.
               </p>
-              <ul className="mt-6 flex flex-wrap gap-2">
-                {items.map((p) => (
-                  <li key={p.id}>
-                    <Chip tone="clay">{p.title}</Chip>
-                  </li>
-                ))}
-              </ul>
             </div>
 
             <div className="flex flex-col gap-3">
@@ -304,12 +188,6 @@ export function GuidePage() {
           </div>
         </div>
       </Section>
-
-      <FinalCta
-        title="Pas encore décidé ?"
-        lead="Télécharge d'abord une fiche gratuite. Tu verras le ton, la méthode et la mise en page avant de payer quoi que ce soit."
-        primary={{ to: "/gratuit", label: "Voir les ressources gratuites" }}
-      />
     </main>
   );
 }

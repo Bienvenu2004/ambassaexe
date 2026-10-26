@@ -13,7 +13,7 @@ tu mets dans tes bios : le visiteur choisit lui-même où aller.
 | Adresse | Page | À quoi elle sert |
 |---|---|---|
 | `/` | Accueil | Le carrefour. Quatre cartes, rien d'autre à décider. |
-| `/gratuit` | Ressources gratuites | Les fiches PDF à télécharger sans inscription. |
+| `/gratuit` | Ressources et outils | Les fiches PDF à télécharger sans inscription. |
 | `/guide-ultime` | Le Guide Ultime | **L'offre principale.** Les 3 guides réunis, lien Chariow. |
 | `/services` | Prestations de services | Ce que tu vends comme travail, pas comme fichier. |
 | `/formations` | Formations | Les formations vidéo en canal privé. |

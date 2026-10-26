@@ -46,12 +46,15 @@ export const HERO = {
   portraitAlt: "Ambassa, de face, sous une lumière chaude",
 };
 
-/* ── Les quatre portes d'entrée de la page d'accueil ───────────────────── */
+/** false masque les formations : liens, menu, pied de page, pages et sitemap. */
+export const SHOW_FORMATIONS = false;
+
+/* ── Les portes d'entrée de la page d'accueil ──────────────────────────── */
 
 export const DESTINATIONS = [
   {
     to: "/gratuit",
-    title: "Ressources gratuites",
+    title: "Ressources et outils",
     text: "Les outils que je teste et que je garde, expliqués en français, avec le lien pour y aller.",
     tone: "paper" as const,
   },
@@ -73,7 +76,7 @@ export const DESTINATIONS = [
     text: "Des formations vidéo pas à pas, dans un canal privé, avec mes réponses à tes questions.",
     tone: "paper" as const,
   },
-];
+].filter((d) => SHOW_FORMATIONS || d.to !== "/formations");
 
 /* ── Textes des pages ─────────────────────────────────────────────────── */
 

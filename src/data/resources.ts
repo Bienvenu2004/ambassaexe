@@ -42,6 +42,311 @@ export interface Resource {
 
 export const RESOURCES: Resource[] = [
   {
+    id: "r-abacus-ai-bot",
+    slug: "abacus-ai-bot",
+    title: "Abacus AI Bot",
+    excerpt:
+      "Un agent de code et un assistant de travail gratuits et open source, présentés comme l'alternative à Claude Code et Cursor. Plus de 100 modèles gratuits, plus de 100 connecteurs.",
+    body: [
+      "Abacus AI Bot s'installe sur macOS, Windows ou Linux et se comporte comme un collègue : tu lui donnes une tâche en une phrase, il la découpe en étapes et revient avec le résultat.",
+      "Côté code, il relit tes pull requests et signale les bugs ligne par ligne, construit un site complet ou transforme un dépôt en schéma lisible. Côté bureau, il nettoie un tableur, compare des billets d'avion ou prépare un brief de réunion.",
+      "Il pioche dans plus de 100 modèles gratuits (Gemini, DeepSeek, Mistral, Groq, OpenRouter…) et se branche sur plus de 100 outils : Gmail, Slack, Notion, Canva, Figma, WhatsApp, Google Agenda. Des modèles prêts à l'emploi existent pour les tâches courantes : tri de la boîte mail, résumé du matin, suivi des relances.",
+    ],
+    image: "abacus-ai",
+    imageAlt:
+      "La page d'Abacus AI Bot : « Code for Free. Forever. », entourée des logos des modèles et des connecteurs",
+    links: [
+      {
+        label: "Abacus AI Bot",
+        url: "https://bot.abacus.ai/ins",
+        note: "Gratuit et open source. Application pour macOS, Windows et Linux.",
+      },
+    ],
+    useCases: [
+      "Faire relire ton code avant de le publier",
+      "Nettoyer et résumer un tableur en une demande",
+      "Préparer chaque matin la liste de ce qui compte",
+    ],
+    date: "2026-10-26",
+    published: true,
+    tags: ["agent de code", "open source", "gratuit"],
+  },
+
+  {
+    id: "r-capcut-x-codex",
+    slug: "capcut-x-codex",
+    title: "CapCut × Codex",
+    excerpt:
+      "Le plugin officiel qui relie CapCut à Codex dans l'application ChatGPT : tu décris ta vidéo, l'IA monte un premier jet, et tu le retouches en discutant ou dans l'éditeur.",
+    body: [
+      "Le principe : tu installes le plugin CapCut dans Codex, tu ouvres une tâche et tu décris ton idée. L'IA génère les images, les plans et un premier montage. Tu peux aussi partir de tes propres rushs.",
+      "Ensuite, tu corriges en parlant : raccourcir une scène, changer l'ordre des plans, remplacer un visuel, décaler un texte, changer la musique. Pour le détail, un clic ouvre l'éditeur CapCut sur le même projet.",
+      "Tu as accès à la bibliothèque de CapCut (modèles, musiques, vidéos d'illustration), aux sous-titres automatiques en plusieurs langues, aux transitions et aux effets. L'export se fait depuis CapCut.",
+    ],
+    image: "capcut-x-codex",
+    imageAlt:
+      "La page CapCut × ChatGPT avec la commande d'installation du plugin à coller dans Codex",
+    links: [
+      {
+        label: "CapCut × Codex",
+        url: "https://www.capcut.com/tools/capcut-x-codex?preview_id=7680487312291168273&utm_medium=social&utm_source=instagram&utm_campaign=insiderforce",
+        note: "Plugin gratuit. Fonctionne dans l'application ChatGPT pour ordinateur.",
+      },
+    ],
+    useCases: [
+      "Sortir un premier montage à partir d'une simple idée",
+      "Sous-titrer une vidéo en plusieurs langues",
+      "Appliquer un modèle CapCut puis y mettre tes images",
+    ],
+    notice: {
+      title: "À savoir avant d'installer",
+      text: "L'installation consiste à donner à Codex un lien vers un fichier d'instructions. Copie ce lien depuis la page officielle de CapCut, jamais depuis un commentaire ou un message. La disponibilité varie selon le pays et la version de l'application.",
+    },
+    date: "2026-10-26",
+    published: true,
+    tags: ["montage vidéo", "ChatGPT", "plugin"],
+  },
+
+  {
+    id: "r-agentvolt",
+    slug: "agentvolt",
+    title: "AgentVolt",
+    excerpt:
+      "Une place de marché de plus de 1 000 skills pour agents IA, construits par des experts et vérifiés avant publication. Compatible Claude, ChatGPT, Cursor, Codex et Gemini.",
+    body: [
+      "Un skill, c'est un dossier d'instructions qui apprend à ton agent une tâche précise : monter une vidéo, rédiger une page de vente, auditer un site. AgentVolt en rassemble plus de mille, rangés par tâche, par agent et par catégorie.",
+      "Chaque skill passe un contrôle de sécurité : commandes dangereuses, mots de passe laissés dans le code, code masqué, connexions réseau suspectes. Ils suivent le format ouvert SKILL.md, donc ils fonctionnent avec plus de 20 agents.",
+      "L'installation prend une demi-minute : tu décompresses le dossier dans le répertoire des skills de ton agent (pour Claude Code, ~/.claude/skills/), et il est disponible à la session suivante.",
+    ],
+    image: "agentvolt",
+    imageAlt:
+      "La page d'AgentVolt : « One Click to Give Your AI All the Skills Top Experts Use », sur fond noir et or",
+    links: [
+      {
+        label: "AgentVolt",
+        url: "https://www.agentvolt.ai/",
+        note: "Certains skills sont gratuits. L'abonnement Pro débloque tout le catalogue.",
+      },
+    ],
+    notice: {
+      title: "Gratuit ou payant",
+      text: "Une partie des skills se récupère gratuitement après inscription. Le reste est inclus dans l'abonnement Pro, à 49 $ par mois, sans engagement.",
+    },
+    date: "2026-10-26",
+    published: true,
+    tags: ["skills", "agents IA", "Claude"],
+  },
+
+  {
+    id: "r-korpi",
+    slug: "korpi",
+    title: "Korpi AI",
+    excerpt:
+      "Un générateur de vidéos sans visage pour TikTok, YouTube Shorts et Reels : tu choisis une niche parmi 182 qui marchent déjà, Korpi écrit, double, illustre et sous-titre la vidéo.",
+    body: [
+      "Korpi part d'un constat simple : certaines niches font des vues de façon régulière. Il en propose 182, avec de nouvelles chaque semaine. Tu en choisis une, et il produit la vidéo entière : script, voix off, visuels et sous-titres.",
+      "Autour, une boîte à outils complète : Auto Clipper découpe une longue vidéo en extraits courts notés de 0 à 99, Niche Maker refait une vidéo virale à partir de son lien pour ta niche, Story Studio part de ton propre script, et un éditeur permet de couper et sous-titrer.",
+      "Il peut aussi publier automatiquement sur tes comptes connectés, et propose des animations faites avec Claude.",
+    ],
+    image: "korpi",
+    imageAlt:
+      "La page de Korpi AI : « What will you go viral with? » sur une mosaïque de vidéos générées",
+    links: [
+      {
+        label: "Korpi AI",
+        url: "https://korpi.ai/",
+        note: "20 crédits offerts à l'inscription, de quoi faire 2 vidéos. Sans carte bancaire.",
+      },
+    ],
+    useCases: [
+      "Lancer une chaîne sans montrer ton visage",
+      "Découper un long live ou un podcast en Shorts",
+      "Adapter une vidéo virale à ton sujet",
+    ],
+    date: "2026-10-26",
+    published: true,
+    tags: ["vidéo courte", "sans visage", "TikTok"],
+  },
+
+  {
+    id: "r-webcmd",
+    slug: "webcmd",
+    title: "Webcmd",
+    excerpt:
+      "Un navigateur pour agents IA qui apprend les sites qu'il visite et s'en souvient. Résultat annoncé : jusqu'à 90 % de jetons en moins. Gratuit, open source.",
+    body: [
+      "Quand un agent IA navigue sur le web, il redécouvre chaque site à chaque fois : où cliquer, quel bouton, quelle page. Ça coûte du temps et des jetons. Webcmd enregistre ce qu'il apprend dans une mémoire locale, une carte des pages, des actions et des chemins, et la réutilise au passage suivant.",
+      "L'agent peut inspecter une page, cliquer, taper, extraire des données et capturer les appels réseau. Chaque profil garde ses propres cookies, donc tes sessions restent séparées.",
+      "Le projet compte 2 800 étoiles sur GitHub, sous licence Apache 2.0. Il s'installe avec Node.js 20.6 ou plus récent, en deux commandes : npm install -g @agentrhq/webcmd, puis webcmd skills add.",
+    ],
+    image: "webcmd",
+    imageAlt: "La page GitHub de webcmd : « Self-learning agent browser », 2,8 k étoiles",
+    links: [
+      {
+        label: "Webcmd sur GitHub",
+        url: "https://github.com/agentrhq/webcmd",
+        note: "Code source, licence Apache 2.0, instructions d'installation.",
+      },
+    ],
+    notice: {
+      title: "Pour qui",
+      text: "C'est un outil en ligne de commande, pensé pour ceux qui font déjà travailler un agent comme Claude Code ou Codex. Les chiffres de performance sont ceux publiés par le projet.",
+    },
+    date: "2026-10-26",
+    published: true,
+    tags: ["navigateur", "agents IA", "open source"],
+  },
+
+  {
+    id: "r-surething",
+    slug: "surething",
+    title: "SureThing",
+    excerpt:
+      "Pas un chatbot : une équipe d'agents IA pour petite entreprise, qui gère tes réseaux sociaux, améliore ton site et lance tes publicités. 150 crédits gratuits par jour.",
+    body: [
+      "SureThing fonctionne comme une petite agence : un directeur des opérations, un responsable marketing, un chercheur et un ingénieur, tous des agents, qui partagent la même mémoire de ton entreprise.",
+      "Tu leur parles depuis Slack, Teams ou par e-mail. Ils travaillent en arrière-plan sur des tâches en plusieurs étapes et te rendent un livrable fini : rapport, campagne, tableau de bord. Avant toute action irréversible, ils te demandent ton accord.",
+      "Il se connecte à plus de 1 000 applications, dont Gmail, Notion, Google Sheets, HubSpot, Stripe, Google Ads, Meta Ads, Instagram et LinkedIn. La mise en place annoncée prend 5 minutes.",
+    ],
+    image: "surething",
+    imageAlt:
+      "La page de SureThing : « Not a chatbot. AI agents that get work done. » au-dessus d'une grille d'applications",
+    links: [
+      {
+        label: "SureThing",
+        url: "https://surething.io/",
+        note: "150 crédits gratuits par jour, sans carte bancaire. Formules payantes dès 30 $ par mois.",
+      },
+    ],
+    useCases: [
+      "Programmer tes publications sur les réseaux",
+      "Recevoir chaque semaine un rapport sur ton trafic",
+      "Surveiller tes concurrents et trouver des prospects",
+    ],
+    date: "2026-10-26",
+    published: true,
+    tags: ["agents IA", "marketing", "petite entreprise"],
+  },
+
+  {
+    id: "r-glasser",
+    slug: "glasser",
+    title: "Glasser",
+    excerpt:
+      "Une seule phrase donne à ton agent IA accès à plus de 2 000 sources de données : SEO, entreprises, personnes, réseaux sociaux. Sans abonnement, tu paies à l'appel.",
+    body: [
+      "Un agent IA raisonne bien, mais il manque souvent de vraies données. Glasser lui ouvre plus de 2 000 points d'accès : Google, YouTube, Amazon, LinkedIn, TikTok, Instagram, Google Maps, et des fournisseurs comme Ahrefs, Semrush, Apollo ou Hunter.",
+      "Pour l'installer, tu envoies à ton agent la phrase « set up https://glasser.ai/SKILL.md ». Il se configure, puis il choisit lui-même la bonne source quand tu poses une question. Ça marche avec Claude Code, Codex, Cursor et Claude.ai.",
+      "Un seul solde couvre tous les fournisseurs, et le prix de chaque appel s'affiche avant qu'il parte : par exemple 0,0011 $ pour des statistiques de mots-clés Semrush.",
+    ],
+    image: "glasser",
+    imageAlt:
+      "La page de Glasser : « One prompt gives your agent the real data it needs. » avec la commande d'installation",
+    links: [
+      {
+        label: "Glasser",
+        url: "https://glasser.ai/",
+        note: "1 $ de crédit offert pour commencer. Ensuite, paiement à l'appel, sans abonnement.",
+      },
+    ],
+    useCases: [
+      "Trouver les mots-clés de tes concurrents",
+      "Constituer une liste de prospects avec leurs coordonnées",
+      "Suivre les avis Google Maps d'un commerce",
+    ],
+    date: "2026-10-26",
+    published: true,
+    tags: ["données", "agents IA", "SEO"],
+  },
+
+  {
+    id: "r-google-flow",
+    slug: "google-flow",
+    title: "Google Flow",
+    excerpt:
+      "Le studio de création IA de Google pour la vidéo et l'image, construit sur ses modèles génératifs les plus avancés.",
+    body: [
+      "Flow est l'atelier de Google pour fabriquer des vidéos et des images à partir d'une description. Tu écris ta scène, tu choisis le modèle, et tu enchaînes les plans pour construire une séquence.",
+      "Il réunit au même endroit les modèles génératifs de Google, des outils de création et des outils personnalisés. La page d'accueil montre la variété de ce qui en sort : animaux, personnages en pâte à modeler, scènes de cinéma, plans aériens.",
+      "La connexion se fait avec ton compte Google. Les fonctions disponibles dépendent de ton abonnement Google AI, de l'appareil (web ou mobile) et de ton pays. Il faut avoir 18 ans.",
+    ],
+    image: "google-flow",
+    imageAlt: "La page de Google Flow : le titre en grand sur une mosaïque de vidéos générées",
+    links: [
+      {
+        label: "Google Flow",
+        url: "https://flow.google.com/?pli=1",
+        note: "Connexion avec un compte Google. Fonctions selon l'abonnement Google AI et le pays.",
+      },
+    ],
+    date: "2026-10-26",
+    published: true,
+    tags: ["vidéo IA", "image IA", "Google"],
+  },
+
+  {
+    id: "r-bloome",
+    slug: "bloome",
+    title: "Bloome",
+    excerpt:
+      "Une messagerie de groupe où humains et agents IA travaillent ensemble : les agents se relisent, se contredisent et corrigent jusqu'à ce que le résultat soit juste.",
+    body: [
+      "Dans Bloome, tu crées une conversation et tu y invites plusieurs IA : Claude, ChatGPT, Gemini, DeepSeek, Grok, Llama, Qwen, ou tes propres agents. Elles rédigent, critiquent le travail des autres et l'améliorent dans le même fil.",
+      "Les agents de code y ont aussi leur place : Claude Code, Codex, Gemini CLI et OpenCode. Chaque tâche tourne dans son propre espace isolé, et tu règles pour chaque agent ce qu'il a le droit de lire et d'écrire.",
+      "Les échanges, les versions et les décisions restent dans un espace partagé que ton équipe peut retrouver. Disponible en ligne et en application sur macOS, Windows, iOS et Android.",
+    ],
+    image: "bloome",
+    imageAlt:
+      "La page de Bloome : « Accelerating the world's transition to human-agent teams. » avec des illustrations de personnages",
+    links: [
+      {
+        label: "Bloome",
+        url: "https://bloome.im/",
+        note: "Gratuit à l'essai. Web, macOS, Windows, iOS et Android.",
+      },
+    ],
+    useCases: [
+      "Faire relire un texte par trois IA différentes",
+      "Préparer une étude de marché à plusieurs agents",
+      "Travailler en équipe avec les mêmes agents",
+    ],
+    date: "2026-10-26",
+    published: true,
+    tags: ["agents IA", "travail d'équipe", "multi-modèles"],
+  },
+
+  {
+    id: "r-gooseworks",
+    slug: "gooseworks",
+    title: "Gooseworks Ads",
+    excerpt:
+      "Tu choisis une publicité qui marche dans une galerie, tu donnes l'adresse de ton site, et Goose en fait une version à ta marque. Tes 10 premières pubs sont offertes.",
+    body: [
+      "La page Ads de Gooseworks est une galerie de publicités performantes, en image et en vidéo, partagées par la communauté. Tu en choisis une, tu entres l'adresse de ton site, et l'outil la refait avec tes produits, tes couleurs et ton ton.",
+      "Derrière, Goose est un assistant marketing qui se branche sur ton agent IA : Claude et la plupart des autres. Il garde en mémoire ta marque, tes produits et tes résultats, et propose 14 méthodes de travail, de l'étude de marché au rapport.",
+      "Tu peux aussi lui envoyer une pub, un TikTok ou un Reel qui te plaît : il en fait ta version. Rien n'est publié sans ton accord.",
+    ],
+    image: "gooseworks",
+    imageAlt:
+      "La page Gooseworks Ads : « Remix high-performing ads » au-dessus d'une galerie de publicités",
+    links: [
+      {
+        label: "Gooseworks Ads",
+        url: "https://gooseworks.ai/ads",
+        note: "Les 10 premières publicités sont gratuites. Formules à partir de 29 $ par mois.",
+      },
+    ],
+    useCases: [
+      "Adapter une pub qui cartonne à ton produit",
+      "Produire une série de visuels publicitaires d'un coup",
+      "Refaire un Reel viral à ta marque",
+    ],
+    date: "2026-10-26",
+    published: true,
+    tags: ["publicité", "marketing", "agents IA"],
+  },
+
+  {
     id: "r-prompts-chat",
     slug: "prompts-chat",
     title: "prompts.chat",

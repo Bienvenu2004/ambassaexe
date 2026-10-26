@@ -1,120 +1,99 @@
-import { useEffect } from "react";
-import { DESTINATIONS, HERO, SITE } from "../data/site";
+import { useEffect, useState } from "react";
+import { CONTACT, DESTINATIONS, HERO, SITE, SOCIALS } from "../data/site";
 import { Link } from "../lib/router";
 import { setMeta } from "../lib/seo";
-import { IconArrow } from "../components/ui";
+import { IconMail, IconWhatsApp, SocialIcon } from "../components/ui";
 
-/* L'accueil ne vend rien et n'explique rien : il oriente.
-   Premier écran : qui je suis et ce que je fais.
-   Au défilement : quatre portes, et c'est tout. */
+/* L'accueil est une page de liens, rien de plus.
+   En haut : qui je suis. Puis les sections du site. */
 
-function Hero() {
-  return (
-    <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pt-10 pb-20 sm:px-6 sm:pt-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:gap-16 lg:pt-24 lg:pb-28">
-      <div className="order-1">
-        <h1 className="reveal max-w-[13ch] font-display text-[clamp(3rem,9.6vw,6rem)] leading-[0.92] font-bold tracking-[-0.04em] text-ink">
-          {HERO.title}
-        </h1>
-
-        <p
-          className="reveal mt-7 max-w-[32ch] text-[17px] leading-[1.55] text-ink sm:text-[19px]"
-          style={{ animationDelay: "70ms" }}
-        >
-          {HERO.subtitle}
-        </p>
-
-        <div className="reveal mt-9" style={{ animationDelay: "140ms" }}>
-          <Link
-            to="/gratuit"
-            className="press inline-flex items-center gap-2.5 rounded-full bg-ink px-7 py-4 text-[15px] font-bold text-paper"
-          >
-            Commencer ici
-            <IconArrow />
-          </Link>
-        </div>
-      </div>
-
-      <div className="order-2 mx-auto w-full max-w-[280px] sm:max-w-[340px] lg:max-w-none">
-        <div className="reveal relative aspect-square" style={{ animationDelay: "40ms" }}>
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 translate-x-[4.5%] translate-y-[4.5%] rounded-full bg-clay"
-          />
-          <img
-            src="/brand/portrait.webp"
-            srcSet="/brand/portrait-sm.webp 520w, /brand/portrait.webp 1000w"
-            sizes="(max-width: 1023px) 340px, 420px"
-            alt={HERO.portraitAlt}
-            width={1000}
-            height={1000}
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 size-full rounded-full object-cover"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Destinations() {
-  return (
-    <nav aria-label="Les quatre sections du site" className="bg-paper-2">
-      <ul className="mx-auto max-w-6xl px-4 py-4 sm:px-6 sm:py-6">
-        {DESTINATIONS.map((d) => {
-          const clay = d.tone === "clay";
-          return (
-            <li key={d.to} className="py-2 sm:py-3">
-              <Link
-                to={d.to}
-                className={`door group block rounded-[20px] px-6 py-8 sm:px-10 sm:py-11 ${
-                  clay ? "bg-clay text-ink" : "bg-card text-ink hover:bg-ink hover:text-paper"
-                }`}
-              >
-                <span className="grid items-center gap-x-10 gap-y-3.5 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)_auto]">
-                  <span className="font-display text-[clamp(1.6rem,5.2vw,2.9rem)] leading-[1.02] font-semibold tracking-[-0.025em]">
-                    {d.title}
-                  </span>
-                  <span
-                    className={`text-[16px] leading-[1.55] sm:text-[17px] ${
-                      clay ? "text-ink/80" : "text-ink/70 group-hover:text-paper/80"
-                    }`}
-                  >
-                    {d.text}
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="door-arrow hidden shrink-0 transition-transform duration-300 lg:block"
-                  >
-                    <svg viewBox="0 0 24 24" fill="none" className="size-9">
-                      <path
-                        d="M5 12h13m0 0-5-5m5 5-5 5"
-                        stroke="currentColor"
-                        strokeWidth="1.7"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
-  );
-}
+const button =
+  "press flex min-h-[52px] w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-center text-[16px] font-bold";
 
 export function Home() {
+  const [contact, setContact] = useState(false);
+
   useEffect(() => {
     setMeta(SITE.metaTitle, SITE.metaDescription);
   }, []);
 
   return (
-    <main id="contenu">
-      <Hero />
-      <Destinations />
+    <main id="contenu" className="mx-auto max-w-[420px] px-4 pt-12 pb-16 sm:pt-16">
+      <header className="reveal flex flex-col items-center text-center">
+        <img
+          src="/brand/portrait-sm.webp"
+          alt={HERO.portraitAlt}
+          width={520}
+          height={520}
+          fetchPriority="high"
+          decoding="async"
+          className="size-24 rounded-full object-cover"
+        />
+        <h1 className="mt-6 font-display text-[22px] font-bold text-ink">
+          Bienvenue sur {SITE.name}
+        </h1>
+        <p className="mt-2 text-[16px] text-ink-soft">{SITE.tagline}</p>
+
+        <p className="mt-6 text-[14px] text-slate">Retrouve-moi aussi sur</p>
+        <ul className="mt-1 flex items-center gap-1">
+          {SOCIALS.map((r) => (
+            <li key={r.url}>
+              <a
+                href={r.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={r.label}
+                className="grid size-10 place-items-center rounded-full text-ink-soft transition-colors hover:text-clay-deep"
+              >
+                <SocialIcon name={r.label} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </header>
+
+      <nav aria-label="Les sections du site" className="mt-8">
+        <ul className="flex flex-col gap-3.5">
+          {DESTINATIONS.map((d, i) => (
+            <li key={d.to}>
+              <Link
+                to={d.to}
+                className={`${button} ${i === 0 ? "bg-clay text-ink" : "bg-ink-soft text-paper"}`}
+              >
+                {d.title}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <button
+              type="button"
+              onClick={() => setContact((v) => !v)}
+              aria-expanded={contact}
+              aria-controls="contact"
+              className={`${button} bg-ink-soft text-paper`}
+            >
+              Me contacter
+            </button>
+            {contact && (
+              <div id="contact" className="reveal mt-3 flex flex-col gap-2.5">
+                <a
+                  href={`https://wa.me/${CONTACT.whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${button} bg-card text-ink`}
+                >
+                  <IconWhatsApp />
+                  {CONTACT.whatsappDisplay}
+                </a>
+                <a href={`mailto:${CONTACT.email}`} className={`${button} bg-card text-ink`}>
+                  <IconMail />
+                  {CONTACT.email}
+                </a>
+              </div>
+            )}
+          </li>
+        </ul>
+      </nav>
     </main>
   );
 }

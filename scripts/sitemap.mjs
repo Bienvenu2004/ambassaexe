@@ -28,20 +28,22 @@ const slugs = (fichier, filtrePublie = true) => {
   return [...new Set(out)];
 };
 
+const formations = /SHOW_FORMATIONS\s*=\s*true/.test(lire("src/data/site.ts"));
+
 const pages = [
   ["", "weekly", "1.0"],
   ["/gratuit", "weekly", "0.9"],
   ["/guide-ultime", "weekly", "0.9"],
   ["/ebooks", "weekly", "0.8"],
   ["/services", "monthly", "0.8"],
-  ["/formations", "monthly", "0.7"],
+  ...(formations ? [["/formations", "monthly", "0.7"]] : []),
   ["/faq", "monthly", "0.5"],
 ];
 
 for (const s of slugs("src/data/resources.ts")) pages.push([`/ressource/${s}`, "monthly", "0.7"]);
 for (const s of slugs("src/data/products.ts")) pages.push([`/produit/${s}`, "monthly", "0.6"]);
 for (const s of slugs("src/data/services.ts")) pages.push([`/service/${s}`, "monthly", "0.6"]);
-for (const s of slugs("src/data/formations.ts")) pages.push([`/formation/${s}`, "monthly", "0.5"]);
+if (formations) for (const s of slugs("src/data/formations.ts")) pages.push([`/formation/${s}`, "monthly", "0.5"]);
 
 const corps = pages
   .map(

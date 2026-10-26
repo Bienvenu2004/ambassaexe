@@ -3,6 +3,7 @@ import { ALL_PRODUCTS } from "./data/products";
 import { SERVICES } from "./data/services";
 import { FORMATIONS } from "./data/formations";
 import { RESOURCES } from "./data/resources";
+import { SHOW_FORMATIONS } from "./data/site";
 import { segments, useRouter } from "./lib/router";
 import { AnnouncementBar, Header } from "./components/Header";
 import { Footer } from "./components/Footer";
@@ -46,11 +47,11 @@ export default function App() {
     page = <ServicesPage />;
   } else if (seg[0] === "guide-ultime") {
     page = <GuidePage />;
-  } else if (seg[0] === "formations") {
+  } else if (seg[0] === "formations" && SHOW_FORMATIONS) {
     page = <FormationsPage />;
   } else if (seg[0] === "faq") {
     page = <FaqPage />;
-  } else if (seg[0] === "formation" && seg[1]) {
+  } else if (seg[0] === "formation" && seg[1] && SHOW_FORMATIONS) {
     const f = FORMATIONS.find((x) => x.slug === seg[1] && x.published);
     page = f ? <FormationPage f={f} /> : <NotFound />;
   } else if (seg[0] === "produit" && seg[1]) {
@@ -62,6 +63,9 @@ export default function App() {
   } else {
     page = <NotFound />;
   }
+
+  // L'accueil est une page de liens : ni bandeau, ni menu, ni pied de page.
+  if (seg.length === 0) return page;
 
   return (
     <>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ANNOUNCEMENT, CONTACT, SOCIALS } from "../data/site";
+import { ANNOUNCEMENT, CONTACT, SHOW_FORMATIONS, SOCIALS } from "../data/site";
 import { Link, useRouter } from "../lib/router";
 import {
   Button,
@@ -13,11 +13,11 @@ import {
 } from "./ui";
 
 const NAV = [
-  { to: "/gratuit", label: "Ressources gratuites", accent: true },
+  { to: "/gratuit", label: "Ressources et outils", accent: true },
   { to: "/guide-ultime", label: "Le Guide Ultime", accent: false },
   { to: "/services", label: "Prestations", accent: false },
   { to: "/formations", label: "Formations", accent: false },
-];
+].filter((n) => SHOW_FORMATIONS || n.to !== "/formations");
 
 export function AnnouncementBar() {
   const [closed, setClosed] = useState(false);

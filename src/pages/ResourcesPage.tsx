@@ -71,7 +71,7 @@ export function ResourcesPage() {
 
   useEffect(() => {
     setMeta(
-      `Ressources gratuites — ${SITE.name}`,
+      `Ressources et outils — ${SITE.name}`,
       "Les outils d'IA et de création que je teste et que je garde, expliqués en français, avec le lien pour y aller.",
     );
     return () => setMeta(SITE.metaTitle, SITE.metaDescription);

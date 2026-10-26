@@ -13,7 +13,7 @@ export const GUIDE = {
   eyebrow: "L'offre principale",
   title: "Le Guide Ultime",
   subtitle: "Maîtriser l'IA, de débutant à pro, en un seul achat",
-  lead: "Quatre guides qui se complètent : la méthode pour écrire tes propres prompts, la bibliothèque où piocher quand tu es pressé, le kit qui transforme une photo de téléphone en visuel qui vend, et l'atelier qui produit des vidéos animées sans logiciel de montage.",
+  lead: "4 ressources réunies en un seul achat. Tu en sors avec trois compétences qui se vendent.",
 
   /** Les produits inclus, dans l'ordre d'affichage. */
   items: ["p-debutant-pro-ia", "p-bibliotheque-chatgpt", "p-studio-pub-ia", "p-motion-design-claude"],
@@ -25,41 +25,23 @@ export const GUIDE = {
   price: 0,
   currency: "FCFA",
 
-  /** Les arguments, sur la page de l'offre. */
-  arguments: [
+  /** Ce qu'on y apprend. `gain` dit ce que la compétence rapporte. */
+  skills: [
     {
-      title: "Tu apprends, tu ne copies pas",
-      text: "Les listes de prompts se périment. La méthode, non. Tu sors de ce guide capable d'écrire les tiens, pour tes sujets, avec tes mots.",
+      title: "Prompter et coder avec l'IA",
+      text: "Obtenir le bon résultat du premier coup, et construire tes propres outils sans être développeur.",
+      gain: "Des heures gagnées chaque semaine, et des outils que tu peux vendre.",
     },
     {
-      title: "Tu as de quoi travailler dès ce soir",
-      text: "1 500 prompts classés par métier et par objectif, plus 500 prompts visuels. Les jours où tu n'as pas le temps de réfléchir, tu ouvres la bonne page et tu copies.",
+      title: "Créer des visuels publicitaires avec l'IA",
+      text: "Flyers, fiches produit et statuts à partir d'une photo de téléphone. Sans graphiste, sans logiciel compliqué.",
+      gain: "Plus de graphiste à payer, et un service à proposer aux commerçants.",
     },
     {
-      title: "Tu repars avec trois compétences",
-      text: "Écrire des prompts qui donnent le bon résultat. Produire des visuels publicitaires à partir d'une photo de téléphone. Fabriquer une vidéo animée sans logiciel de montage. Trois choses qu'on confiait hier à trois prestataires différents.",
+      title: "Le motion design avec Claude",
+      text: "Des vidéos animées sans logiciel de montage : tu décris, Claude code, la vidéo sort.",
+      gain: "Une vidéo animée se facture cher. Tu la produis pour toi ou pour tes clients.",
     },
-    {
-      title: "Tu sais quoi vérifier",
-      text: "Ce que l'IA invente, ce qu'il ne faut jamais lui confier, et comment juger une réponse avant de la publier. C'est ce qui sépare l'amateur du professionnel.",
-    },
-    {
-      title: "Tu pratiques vraiment",
-      text: "Chaque chapitre finit par un exercice et un défi. Et un projet final te fait produire une campagne complète, de la recherche à la publication.",
-    },
-  ],
-
-  /** Pour qui c'est, et pour qui ça ne l'est pas. */
-  forWho: [
-    "Débutants complets : le premier chapitre part de zéro",
-    "Vendeurs et entrepreneurs qui paient aujourd'hui un graphiste ou un monteur",
-    "Créateurs de contenu qui veulent produire sans se répéter",
-    "Étudiants et salariés qui veulent apprendre vite et sans risque",
-  ],
-  notForWho: [
-    "Ceux qui cherchent une méthode pour gagner de l'argent sans travailler",
-    "Ceux qui veulent une liste de prompts sans jamais comprendre comment elle marche",
-    "Les développeurs qui cherchent de la documentation technique",
   ],
 };
 
