@@ -1,24 +1,33 @@
 import { useEffect } from "react";
-import { GUIDE, guideItems, guideStats } from "../data/offer";
-import { CONTACT, SITE } from "../data/site";
+import { guideStats } from "../data/offer";
+import { CONTACT } from "../data/site";
+import { useContent } from "../data/content";
+import { usePrefs } from "../lib/prefs";
 import { setMeta } from "../lib/seo";
 import { Button, IconArrow, IconWhatsApp, Section, SectionTitle } from "../components/ui";
 
 export function GuidePage() {
-  const items = guideItems();
+  const { site, guide: GUIDE, products } = useContent();
+  const { lang, t } = usePrefs();
+  const items = GUIDE.items
+    .map((id) => products.find((p) => p.id === id))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p));
   const stats = guideStats();
 
   useEffect(() => {
     setMeta(
-      `${GUIDE.title} — ${SITE.name}`,
-      "4 ressources en un seul achat pour apprendre à prompter et coder avec l'IA, créer des visuels publicitaires sans graphiste et faire du motion design avec Claude.",
+      `${GUIDE.title} — ${site.name}`,
+      t(
+        "4 ressources en un seul achat pour apprendre à prompter et coder avec l'IA, créer des visuels publicitaires sans graphiste et faire du motion design avec Claude.",
+        "4 resources in a single purchase to learn prompting and coding with AI, making ad visuals without a designer, and motion design with Claude.",
+      ),
     );
-    return () => setMeta(SITE.metaTitle, SITE.metaDescription);
-  }, []);
+    return () => setMeta(site.metaTitle, site.metaDescription);
+  }, [GUIDE, site, t]);
 
   const Acheter = ({ size = "lg" as const }) => (
     <Button href={GUIDE.purchaseUrl} external size={size}>
-      Obtenir le Guide Ultime
+      {t("Obtenir le Guide Ultime", "Get the Ultimate Guide")}
       <IconArrow />
     </Button>
   );
@@ -46,9 +55,9 @@ export function GuidePage() {
 
               <dl className="mt-9 grid max-w-md grid-cols-3 gap-4 rounded-[18px] bg-paper-2 px-5 py-6">
                 {[
-                  [stats.count.toString(), "ressources"],
+                  [stats.count.toString(), t("ressources", "resources")],
                   [stats.pages.toString(), "pages"],
-                  [stats.prompts.toLocaleString("fr-FR"), "prompts"],
+                  [stats.prompts.toLocaleString(lang === "en" ? "en-US" : "fr-FR"), "prompts"],
                 ].map(([v, l]) => (
                   <div key={l}>
                     <dt className="sr-only">{l}</dt>
@@ -64,8 +73,16 @@ export function GuidePage() {
                 <Acheter />
               </div>
               <p className="mt-4 text-[15px] text-slate">
-                Paiement unique · Accès immédiat · Fichiers PDF à garder à vie
+                {t(
+                  "Paiement unique · Accès immédiat · Fichiers PDF à garder à vie",
+                  "One-time payment · Instant access · PDF files to keep for life",
+                )}
               </p>
+              {lang === "en" && (
+                <p className="mt-2 text-[15px] font-semibold text-clay-deep">
+                  The guides themselves are written in French.
+                </p>
+              )}
             </div>
 
             {/* Les couvertures en éventail */}
@@ -84,7 +101,7 @@ export function GuidePage() {
                     {p.coverImage && (
                       <img
                         src={`/covers/${p.coverImage}-sm.webp`}
-                        alt={`Couverture — ${p.title}`}
+                        alt={`${t("Couverture", "Cover")} — ${p.title}`}
                         width={420}
                         height={594}
                         loading={i === 0 ? "eager" : "lazy"}
@@ -103,8 +120,11 @@ export function GuidePage() {
       {/* ── Ce qu'on y apprend ── */}
       <Section className="py-14 sm:py-20">
         <SectionTitle
-          title="Trois compétences rentables"
-          lead="Chacune te fait économiser un prestataire, ou devient un service que tu vends."
+          title={t("Trois compétences rentables", "Three skills that pay")}
+          lead={t(
+            "Chacune te fait économiser un prestataire, ou devient un service que tu vends.",
+            "Each one saves you hiring someone, or becomes a service you sell.",
+          )}
         />
         <div className="mt-9 grid gap-4 sm:gap-5 lg:grid-cols-3">
           {GUIDE.skills.map((s) => (
@@ -123,14 +143,16 @@ export function GuidePage() {
 
       {/* ── Les ressources incluses ── */}
       <Section className="py-14 sm:py-20">
-        <SectionTitle title={`Les ${stats.count} ressources incluses`} />
+        <SectionTitle
+          title={t(`Les ${stats.count} ressources incluses`, `The ${stats.count} resources included`)}
+        />
         <ul className="mt-9 grid grid-cols-2 gap-5 lg:grid-cols-4">
           {items.map((p) => (
             <li key={p.id} className="on-scroll">
               {p.coverImage && (
                 <img
                   src={`/covers/${p.coverImage}-sm.webp`}
-                  alt={`Couverture — ${p.title}`}
+                  alt={`${t("Couverture", "Cover")} — ${p.title}`}
                   width={420}
                   height={594}
                   loading="lazy"
@@ -163,10 +185,16 @@ export function GuidePage() {
           <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
             <div>
               <h2 className="max-w-xl font-display text-[clamp(1.7rem,4.6vw,2.6rem)] leading-tight font-bold">
-                {stats.count} ressources, 3 compétences, un seul achat.
+                {t(
+                  `${stats.count} ressources, 3 compétences, un seul achat.`,
+                  `${stats.count} resources, 3 skills, one purchase.`,
+                )}
               </h2>
               <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-paper/70">
-                Paiement unique, téléchargement immédiat, fichiers à garder.
+                {t(
+                  "Paiement unique, téléchargement immédiat, fichiers à garder.",
+                  "One-time payment, instant download, files to keep.",
+                )}
               </p>
             </div>
 
@@ -174,7 +202,10 @@ export function GuidePage() {
               <Acheter />
               <Button
                 href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(
-                  "Bonjour, j'ai une question sur le Guide Ultime pour maîtriser l'IA.",
+                  t(
+                    "Bonjour, j'ai une question sur le Guide Ultime pour maîtriser l'IA.",
+                    "Hello, I have a question about the Ultimate Guide to mastering AI.",
+                  ),
                 )}`}
                 external
                 variant="outline"
@@ -182,7 +213,7 @@ export function GuidePage() {
                 className="border-paper/20 bg-transparent text-paper hover:border-clay hover:text-clay"
               >
                 <IconWhatsApp />
-                Poser une question
+                {t("Poser une question", "Ask a question")}
               </Button>
             </div>
           </div>

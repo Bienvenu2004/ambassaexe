@@ -1,7 +1,7 @@
 import { useId, useState } from "react";
-import { CONTACT, LEGAL, SHOW_FORMATIONS, SOCIALS } from "../data/site";
-import { SERVICES } from "../data/services";
-import { SITE } from "../data/site";
+import { CONTACT, SHOW_FORMATIONS, SOCIALS } from "../data/site";
+import { useContent } from "../data/content";
+import { usePrefs } from "../lib/prefs";
 import { Link } from "../lib/router";
 import { Button, IconArrow, IconMail, IconWhatsApp, Section, SocialIcon } from "./ui";
 
@@ -16,6 +16,7 @@ export function FinalCta({
   lead: string;
   primary?: { to: string; label: string };
 }) {
+  const { t } = usePrefs();
   return (
     <Section className="pb-16 sm:pb-24">
       <div className="relative overflow-hidden rounded-[26px] bg-ink px-6 py-14 text-center text-paper sm:px-12 sm:py-20">
@@ -46,7 +47,7 @@ export function FinalCta({
                 }`}
               >
                 <IconWhatsApp />
-                Me parler sur WhatsApp
+                {t("Me parler sur WhatsApp", "Message me on WhatsApp")}
               </Button>
             )}
           </div>
@@ -86,7 +87,9 @@ function LegalBlock({ title, body }: { title: string; body: string }) {
 }
 
 export function Footer() {
-  const services = SERVICES.filter((s) => s.published).slice(0, 4);
+  const { site, services: all, legal } = useContent();
+  const { t } = usePrefs();
+  const services = all.filter((s) => s.published).slice(0, 4);
 
   return (
     <footer className="bg-paper-2">
@@ -94,7 +97,10 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_minmax(0,1fr)]">
           <div>
             <p className="max-w-[26ch] font-display text-[clamp(1.4rem,3.4vw,1.9rem)] leading-[1.1] font-semibold tracking-[-0.02em] text-ink">
-              Une question, un projet&nbsp;? Écris-moi, je réponds sous 24&nbsp;heures.
+              {t(
+                "Une question, un projet ? Écris-moi, je réponds sous 24 heures.",
+                "A question, a project? Write to me, I reply within 24 hours.",
+              )}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               {CONTACT.whatsapp && (
@@ -114,22 +120,22 @@ export function Footer() {
                   className="press inline-flex items-center justify-center gap-2 rounded-full bg-card px-6 py-3.5 text-[14.5px] font-bold text-ink"
                 >
                   <IconMail />
-                  E-mail
+                  {t("E-mail", "Email")}
                 </a>
               )}
             </div>
           </div>
 
-          <nav aria-label="Le site">
-            <p className="font-display text-[15px] font-semibold text-ink">Le site</p>
+          <nav aria-label={t("Le site", "The site")}>
+            <p className="font-display text-[15px] font-semibold text-ink">{t("Le site", "The site")}</p>
             <ul className="mt-4 space-y-2.5">
               {[
-                ["Ressources et outils", "/gratuit"],
-                ["Le Guide Ultime", "/guide-ultime"],
-                ["Prestations de services", "/services"],
-                ["Formations", "/formations"],
-                ["Les autres guides", "/ebooks"],
-                ["Questions fréquentes", "/faq"],
+                [t("Ressources et outils", "Resources & tools"), "/gratuit"],
+                [t("Le Guide Ultime", "The Ultimate Guide"), "/guide-ultime"],
+                [t("Prestations de services", "Services"), "/services"],
+                [t("Formations", "Training"), "/formations"],
+                [t("Les autres guides", "Other guides"), "/ebooks"],
+                [t("Questions fréquentes", "FAQ"), "/faq"],
               ]
                 .filter(([, to]) => SHOW_FORMATIONS || to !== "/formations")
                 .map(([label, to]) => (
@@ -145,8 +151,8 @@ export function Footer() {
             </ul>
           </nav>
 
-          <nav aria-label="Prestations">
-            <p className="font-display text-[15px] font-semibold text-ink">Prestations</p>
+          <nav aria-label={t("Prestations", "Services")}>
+            <p className="font-display text-[15px] font-semibold text-ink">{t("Prestations", "Services")}</p>
             <ul className="mt-4 space-y-2.5">
               {services.map((s) => (
                 <li key={s.id}>
@@ -160,7 +166,7 @@ export function Footer() {
               ))}
             </ul>
             {SOCIALS.length > 0 && (
-              <p className="mt-7 text-[14px] text-slate">Retrouve-moi aussi sur</p>
+              <p className="mt-7 text-[14px] text-slate">{t("Retrouve-moi aussi sur", "Find me on")}</p>
             )}
             {SOCIALS.length > 0 && (
               <ul className="mt-2 flex flex-wrap items-center gap-2">
@@ -183,7 +189,7 @@ export function Footer() {
                     <a
                       href={`mailto:${CONTACT.email}`}
                       title={CONTACT.email}
-                      aria-label={`Écrire à ${CONTACT.email}`}
+                      aria-label={t(`Écrire à ${CONTACT.email}`, `Email ${CONTACT.email}`)}
                       className="grid size-10 place-items-center rounded-full bg-paper-2 text-ink-soft transition-colors hover:text-clay-deep"
                     >
                       <IconMail />
@@ -205,12 +211,12 @@ export function Footer() {
 
         <div className="mt-10 grid gap-x-6 gap-y-2 sm:grid-cols-[1fr_auto] sm:items-center">
           <p className="text-[15px] text-slate">
-            © {new Date().getFullYear()} {SITE.name}. Tous droits réservés.
+            © {new Date().getFullYear()} {site.name}. {t("Tous droits réservés.", "All rights reserved.")}
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
-            <LegalBlock title="Confidentialité" body={LEGAL.privacy} />
-            <LegalBlock title="Conditions d'utilisation" body={LEGAL.terms} />
-            <LegalBlock title="Remboursement" body={LEGAL.refund} />
+            <LegalBlock title={t("Confidentialité", "Privacy")} body={legal.privacy} />
+            <LegalBlock title={t("Conditions d'utilisation", "Terms of use")} body={legal.terms} />
+            <LegalBlock title={t("Remboursement", "Refunds")} body={legal.refund} />
           </div>
         </div>
       </div>

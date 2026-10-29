@@ -19,9 +19,34 @@
   --color-clay: #da7754;
   --color-clay-deep: #a8492a;
   --color-clay-wash: #f6e7e0;
+  /* Le texte posé sur la terracotta reste sombre dans les deux thèmes. */
+  --color-on-clay: #1a1a1a;
+  /* Les boutons secondaires de l'accueil : sombres sur papier clair. */
+  --color-btn: #3b3936;
+  --color-on-btn: #f7f7f7;
 
   --font-display: "Clash Display", "Satoshi", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Satoshi", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+}
+
+/* Thème sombre : les mêmes rôles, valeurs inversées. L'encre devient claire,
+   le papier devient sombre, la terracotta ne bouge pas. Le script en tête de
+   index.html pose data-theme avant le premier affichage. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-paper: #121110;
+  --color-paper-2: #1b1a18;
+  --color-card: #22201e;
+  --color-ink: #f1eee9;
+  --color-ink-soft: #d2ccc5;
+  --color-slate: #a49d96;
+  --color-mute: #7f7973;
+  --color-line: #36332f;
+  --color-line-soft: #2b2926;
+  --color-clay-deep: #ec9a7a;
+  --color-clay-wash: #33231c;
+  --color-btn: #2b2926;
+  --color-on-btn: #f1eee9;
 }
 
 @layer base {

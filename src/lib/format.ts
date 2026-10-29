@@ -1,7 +1,18 @@
+import type { Lang } from "./prefs";
+
 /** Affichage des prix : 9900 FCFA -> "9 900 FCFA" (espace insécable fine). */
 export function formatPrice(value: number, currency: string): string {
-  const n = new Intl.NumberFormat("fr-FR").format(value).replace(/ /g, " ");
-  return `${n} ${currency}`;
+  const n = new Intl.NumberFormat("fr-FR").format(value).replace(/ /g, " ");
+  return `${n} ${currency}`;
+}
+
+/** Une date ISO AAAA-MM-JJ, écrite dans la langue du visiteur. */
+export function formatDate(iso: string, lang: Lang): string {
+  return new Date(iso + "T12:00:00").toLocaleDateString(lang === "en" ? "en-GB" : "fr-FR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
 }
 
 export function discountPercent(price: number, original?: number): number | null {
@@ -20,24 +31,28 @@ export function buyLink(
   title: string,
   whatsapp: string,
   free = false,
+  lang: Lang = "fr",
 ): { href: string; label: string; external: boolean; download?: boolean } {
+  const en = lang === "en";
   if (free && purchaseUrl && purchaseUrl.trim()) {
     return {
       href: purchaseUrl,
-      label: "Télécharger gratuitement",
+      label: en ? "Download for free" : "Télécharger gratuitement",
       external: true,
       download: true,
     };
   }
   if (purchaseUrl && purchaseUrl.trim()) {
-    return { href: purchaseUrl, label: "Acheter maintenant", external: true };
+    return { href: purchaseUrl, label: en ? "Buy now" : "Acheter maintenant", external: true };
   }
   const msg = encodeURIComponent(
-    `Bonjour, je souhaite commander « ${title} ». Pouvez-vous m'envoyer le lien de paiement ?`,
+    en
+      ? `Hello, I'd like to order « ${title} ». Could you send me the payment link?`
+      : `Bonjour, je souhaite commander « ${title} ». Pouvez-vous m'envoyer le lien de paiement ?`,
   );
   return {
     href: `https://wa.me/${whatsapp}?text=${msg}`,
-    label: "Commander sur WhatsApp",
+    label: en ? "Order on WhatsApp" : "Commander sur WhatsApp",
     external: true,
   };
 }

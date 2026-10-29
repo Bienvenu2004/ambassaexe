@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import type { Product } from "../data/types";
-import { ALL_PRODUCTS } from "../data/products";
-import { categoryLabel } from "../data/categories";
-import { CONTACT, SITE } from "../data/site";
+import { CONTACT } from "../data/site";
+import { useContent } from "../data/content";
+import { usePrefs } from "../lib/prefs";
 import { buyLink, discountPercent, formatPrice } from "../lib/format";
 import { Link } from "../lib/router";
 import { setMeta } from "../lib/seo";
@@ -18,25 +18,31 @@ import { CoverImage, ProductCard } from "../components/ProductCard";
 import { FinalCta } from "../components/Footer";
 
 export function NotFound() {
+  const { site } = useContent();
+  const { t } = usePrefs();
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-    setMeta(`Page introuvable — ${SITE.name}`);
-  }, []);
+    setMeta(`${t("Page introuvable", "Page not found")} — ${site.name}`);
+  }, [site, t]);
 
   return (
     <main className="mx-auto flex min-h-[68vh] max-w-xl flex-col items-center justify-center px-6 text-center">
       <h1 className="font-display text-[clamp(2.4rem,7vw,5.6rem)] leading-[1.02] font-semibold text-ink">
-        Cette page n'existe pas
+        {t("Cette page n'existe pas", "This page doesn't exist")}
       </h1>
       <p className="mt-3 text-[16.5px] leading-relaxed text-ink/80">
-        Le lien est peut-être ancien, ou la page a été retirée.
+        {t(
+          "Le lien est peut-être ancien, ou la page a été retirée.",
+          "The link may be old, or the page was removed.",
+        )}
       </p>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row">
         <Button to="/" size="lg">
-          Retour à l'accueil
+          {t("Retour à l'accueil", "Back to home")}
         </Button>
         <Button to="/gratuit" variant="outline" size="lg">
-          Les ressources gratuites
+          {t("Ressources et outils", "Resources & tools")}
         </Button>
       </div>
     </main>
@@ -44,21 +50,27 @@ export function NotFound() {
 }
 
 export function ProductPage({ p }: { p: Product }) {
+  const { site, allProducts, categories } = useContent();
+  const { lang, t } = usePrefs();
   const free = p.accessType === "gratuit";
-  const link = buyLink(p.purchaseUrl, p.title, CONTACT.whatsapp, free);
+  const link = buyLink(p.purchaseUrl, p.title, CONTACT.whatsapp, free, lang);
   const off = discountPercent(p.price, p.originalPrice);
   const backTo = free ? "/gratuit" : "/ebooks";
+  const categoryLabel = categories.find((c) => c.id === p.category)?.label ?? p.category;
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-    setMeta(`${p.title} — ${SITE.name}`, p.description);
-    return () => setMeta(SITE.metaTitle, SITE.metaDescription);
-  }, [p]);
+  }, [p.id]);
 
-  const related = ALL_PRODUCTS.filter(
+  useEffect(() => {
+    setMeta(`${p.title} — ${site.name}`, p.description);
+    return () => setMeta(site.metaTitle, site.metaDescription);
+  }, [p, site]);
+
+  const related = allProducts.filter(
     (x) => x.published && x.id !== p.id && x.category === p.category,
   ).slice(0, 3);
-  const fallback = ALL_PRODUCTS.filter((x) => x.published && x.id !== p.id && x.featured).slice(0, 3);
+  const fallback = allProducts.filter((x) => x.published && x.id !== p.id && x.featured).slice(0, 3);
   const suggestions = related.length > 0 ? related : fallback;
 
   return (
@@ -75,7 +87,7 @@ export function ProductPage({ p }: { p: Product }) {
           )}
           {(p.badge || free) && (
             <p className="mt-5">
-              <Pill tone="clay">{free ? "Gratuit" : p.badge}</Pill>
+              <Pill tone="clay">{free ? t("Gratuit", "Free") : p.badge}</Pill>
             </p>
           )}
         </header>
@@ -87,7 +99,9 @@ export function ProductPage({ p }: { p: Product }) {
               className="mb-5 inline-flex items-center gap-2 text-[14px] font-medium text-slate transition-colors hover:text-clay-deep"
             >
               <IconArrow className="rotate-180" />
-              {free ? "Toutes les ressources gratuites" : "Retour au catalogue"}
+              {free
+                ? t("Toutes les ressources", "All resources")
+                : t("Retour au catalogue", "Back to the catalogue")}
             </Link>
 
             <div className="mx-auto max-w-[340px] overflow-hidden rounded-2xl lg:max-w-none">
@@ -105,7 +119,7 @@ export function ProductPage({ p }: { p: Product }) {
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                 {free ? (
                   <span className="font-display text-[30px] leading-none font-semibold text-clay-deep">
-                    Gratuit
+                    {t("Gratuit", "Free")}
                   </span>
                 ) : (
                   <>
@@ -135,23 +149,40 @@ export function ProductPage({ p }: { p: Product }) {
                 </Button>
                 <Button
                   href={`https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(
-                    `Bonjour, j'ai une question sur « ${p.title} ».`,
+                    t(
+                      `Bonjour, j'ai une question sur « ${p.title} ».`,
+                      `Hello, I have a question about « ${p.title} ».`,
+                    ),
                   )}`}
                   external
                   variant="outline"
                   size="lg"
                 >
-                  Poser une question
+                  {t("Poser une question", "Ask a question")}
                 </Button>
               </div>
 
               <p className="mt-4 text-[14.5px] leading-relaxed text-ink-soft">
                 {free
-                  ? "Aucune inscription · Aucune adresse e-mail demandée · Libre de partage"
+                  ? t(
+                      "Aucune inscription · Aucune adresse e-mail demandée · Libre de partage",
+                      "No sign-up · No email required · Free to share",
+                    )
                   : p.productType === "formation"
-                    ? "Paiement unique · Accès immédiat après validation · Accès au canal privé, sans date de fin"
-                    : "Paiement unique · Accès immédiat après validation · Fichier PDF à garder à vie"}
+                    ? t(
+                        "Paiement unique · Accès immédiat après validation · Accès au canal privé, sans date de fin",
+                        "One-time payment · Instant access once approved · Private channel access, no end date",
+                      )
+                    : t(
+                        "Paiement unique · Accès immédiat après validation · Fichier PDF à garder à vie",
+                        "One-time payment · Instant access once approved · PDF file to keep for life",
+                      )}
               </p>
+              {lang === "en" && (
+                <p className="mt-2 text-[14.5px] font-semibold text-clay-deep">
+                  This guide is written in French.
+                </p>
+              )}
             </div>
 
             {p.specs && p.specs.length > 0 && (
@@ -173,12 +204,12 @@ export function ProductPage({ p }: { p: Product }) {
             {p.longDescription && p.longDescription.length > 0 && (
               <div className="mt-9">
                 <h2 className="rule-gold font-display text-[20px] font-semibold text-ink">
-                  Ce que c'est
+                  {t("Ce que c'est", "What it is")}
                 </h2>
                 <div className="mt-5 space-y-4">
-                  {p.longDescription.map((t, i) => (
+                  {p.longDescription.map((para, i) => (
                     <p key={i} className="text-[17px] leading-[1.7] text-ink/85">
-                      {t}
+                      {para}
                     </p>
                   ))}
                 </div>
@@ -188,7 +219,7 @@ export function ProductPage({ p }: { p: Product }) {
             {p.contents && p.contents.length > 0 && (
               <div className="mt-9">
                 <h2 className="rule-gold font-display text-[20px] font-semibold text-ink">
-                  Ce que tu obtiens
+                  {t("Ce que tu obtiens", "What you get")}
                 </h2>
                 <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                   {p.contents.map((c, i) => (
@@ -207,18 +238,18 @@ export function ProductPage({ p }: { p: Product }) {
             {p.tags && p.tags.length > 0 && (
               <div className="mt-9">
                 <h2 className="text-[15px] font-medium text-slate">
-                  Dans la même veine
+                  {t("Dans la même veine", "Related topics")}
                 </h2>
                 <ul className="mt-3 flex flex-wrap gap-2">
                   <li className="rounded-full bg-card px-3 py-1 text-[15px] text-ink-soft">
-                    {categoryLabel(p.category)}
+                    {categoryLabel}
                   </li>
-                  {p.tags.map((t) => (
+                  {p.tags.map((tag) => (
                     <li
-                      key={t}
+                      key={tag}
                       className="rounded-full bg-card px-3 py-1 text-[15px] text-ink-soft"
                     >
-                      {t}
+                      {tag}
                     </li>
                   ))}
                 </ul>
@@ -230,7 +261,7 @@ export function ProductPage({ p }: { p: Product }) {
         {suggestions.length > 0 && (
           <section className="mt-24 sm:mt-32">
             <h2 className="font-display text-[22px] font-semibold text-ink">
-              Ça pourrait aussi t'intéresser
+              {t("Ça pourrait aussi t'intéresser", "You might also like")}
             </h2>
             <div className="mt-6 grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-3">
               {suggestions.map((x) => (
@@ -243,9 +274,12 @@ export function ProductPage({ p }: { p: Product }) {
 
       {free && (
         <FinalCta
-          title="Cette fiche est un extrait."
-          lead="Le guide complet va beaucoup plus loin : la méthode, les exercices, et tout ce qui ne tient pas en quelques pages."
-          primary={{ to: "/ebooks", label: "Voir les guides complets" }}
+          title={t("Cette fiche est un extrait.", "This sheet is an excerpt.")}
+          lead={t(
+            "Le guide complet va beaucoup plus loin : la méthode, les exercices, et tout ce qui ne tient pas en quelques pages.",
+            "The full guide goes much further: the method, the exercises, and everything that doesn't fit in a few pages.",
+          )}
+          primary={{ to: "/ebooks", label: t("Voir les guides complets", "See the full guides") }}
         />
       )}
     </main>

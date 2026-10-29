@@ -1,19 +1,12 @@
 import { useMemo, useState } from "react";
-import { ALL_PRODUCTS } from "../data/products";
-import { CATEGORIES } from "../data/categories";
+import { useContent } from "../data/content";
 import type { Product } from "../data/types";
+import { usePrefs } from "../lib/prefs";
 import { Button, IconClose, IconSearch, SectionTitle, Section } from "./ui";
 import { ProductCard } from "./ProductCard";
 
 type Sort = "featured" | "recent" | "price-asc" | "price-desc";
 type PriceFilter = "all" | "gratuit" | "payant";
-
-const SORTS: { id: Sort; label: string }[] = [
-  { id: "featured", label: "Mis en avant" },
-  { id: "recent", label: "Nouveautés" },
-  { id: "price-asc", label: "Prix croissant" },
-  { id: "price-desc", label: "Prix décroissant" },
-];
 
 function matches(p: Product, q: string) {
   if (!q) return true;
@@ -39,16 +32,25 @@ export function Catalog({
   category: string;
   onCategory: (v: string) => void;
 }) {
+  const { allProducts, categories } = useContent();
+  const { t } = usePrefs();
   const [sort, setSort] = useState<Sort>("featured");
   const [price, setPrice] = useState<PriceFilter>("all");
 
-  const published = useMemo(() => ALL_PRODUCTS.filter((p) => p.published), []);
+  const sorts: { id: Sort; label: string }[] = [
+    { id: "featured", label: t("Mis en avant", "Featured") },
+    { id: "recent", label: t("Nouveautés", "Newest") },
+    { id: "price-asc", label: t("Prix croissant", "Price: low to high") },
+    { id: "price-desc", label: t("Prix décroissant", "Price: high to low") },
+  ];
+
+  const published = useMemo(() => allProducts.filter((p) => p.published), [allProducts]);
 
   // Seules les catégories réellement utilisées apparaissent.
   const cats = useMemo(() => {
     const used = new Set(published.map((p) => p.category));
-    return CATEGORIES.filter((c) => used.has(c.id));
-  }, [published]);
+    return categories.filter((c) => used.has(c.id));
+  }, [published, categories]);
 
   const hasFree = published.some((p) => p.accessType === "gratuit");
 
@@ -78,11 +80,17 @@ export function Catalog({
     onQuery("");
   };
 
+  const count = (n: number) =>
+    t(`${n} ressource${n > 1 ? "s" : ""}`, `${n} resource${n > 1 ? "s" : ""}`);
+
   return (
     <Section id="catalogue" className="scroll-mt-24 py-12 sm:py-16">
       <SectionTitle
-        title="Toutes les ressources"
-        lead="Filtre par catégorie, cherche par mot-clé, et ouvre la fiche pour voir exactement ce que tu obtiens."
+        title={t("Toutes les ressources", "All resources")}
+        lead={t(
+          "Filtre par catégorie, cherche par mot-clé, et ouvre la fiche pour voir exactement ce que tu obtiens.",
+          "Filter by category, search by keyword, and open a product to see exactly what you get.",
+        )}
       />
 
       {/* Barre de recherche du catalogue */}
@@ -95,15 +103,15 @@ export function Catalog({
             type="search"
             value={query}
             onChange={(e) => onQuery(e.target.value)}
-            placeholder="Chercher un titre, un thème, un mot-clé…"
-            aria-label="Chercher dans le catalogue"
+            placeholder={t("Chercher un titre, un thème, un mot-clé…", "Search a title, a topic, a keyword…")}
+            aria-label={t("Chercher dans le catalogue", "Search the catalogue")}
             className="w-full rounded-full bg-card py-3 pr-11 pl-12 text-[14.5px] text-ink placeholder:text-mute focus:border-clay/55 focus:outline-none"
           />
           {query && (
             <button
               type="button"
               onClick={() => onQuery("")}
-              aria-label="Effacer la recherche"
+              aria-label={t("Effacer la recherche", "Clear the search")}
               className="absolute right-3.5 text-mute hover:text-ink"
             >
               <IconClose />
@@ -112,13 +120,13 @@ export function Catalog({
         </div>
 
         <label className="relative shrink-0">
-          <span className="sr-only">Trier les résultats</span>
+          <span className="sr-only">{t("Trier les résultats", "Sort results")}</span>
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as Sort)}
             className="w-full appearance-none rounded-full bg-card py-3 pr-10 pl-5 text-[14px] font-medium text-ink focus:border-clay/55 focus:outline-none sm:w-auto"
           >
-            {SORTS.map((s) => (
+            {sorts.map((s) => (
               <option key={s.id} value={s.id} className="bg-card">
                 {s.label}
               </option>
@@ -136,7 +144,7 @@ export function Catalog({
       {/* Filtres catégorie */}
       <div className="mt-4 flex flex-wrap gap-2">
         <Chip active={category === "all"} onClick={() => onCategory("all")}>
-          Tout ({published.length})
+          {t("Tout", "All")} ({published.length})
         </Chip>
         {cats.map((c) => {
           const n = published.filter((p) => p.category === c.id).length;
@@ -151,7 +159,7 @@ export function Catalog({
             active={price === "gratuit"}
             onClick={() => setPrice(price === "gratuit" ? "all" : "gratuit")}
           >
-            Gratuit
+            {t("Gratuit", "Free")}
           </Chip>
         )}
       </div>
@@ -161,16 +169,14 @@ export function Catalog({
       )}
 
       <p className="mt-5 text-[14px] text-slate" role="status" aria-live="polite">
-        {results.length === 0
-          ? "Aucun résultat"
-          : `${results.length} ressource${results.length > 1 ? "s" : ""}`}
+        {results.length === 0 ? t("Aucun résultat", "No results") : count(results.length)}
         {filtered && (
           <button
             type="button"
             onClick={reset}
             className="ml-3 font-semibold text-clay underline underline-offset-2"
           >
-            Réinitialiser
+            {t("Réinitialiser", "Reset")}
           </button>
         )}
       </p>
@@ -184,16 +190,17 @@ export function Catalog({
       ) : (
         <div className="mt-8 rounded-2xl bg-paper-2 px-6 py-14 text-center">
           <p className="font-display text-[19px] font-semibold text-ink">
-            Rien ne correspond à cette recherche
+            {t("Rien ne correspond à cette recherche", "Nothing matches this search")}
           </p>
           <p className="mx-auto mt-2 max-w-md text-[16px] leading-relaxed text-ink/75">
-            Essaie un mot-clé plus court, ou retire un filtre. Si tu cherches une
-            ressource qui n'existe pas encore, dis-le-moi : c'est souvent comme ça
-            qu'un nouveau guide commence.
+            {t(
+              "Essaie un mot-clé plus court, ou retire un filtre. Si tu cherches une ressource qui n'existe pas encore, dis-le-moi : c'est souvent comme ça qu'un nouveau guide commence.",
+              "Try a shorter keyword, or remove a filter. If you're looking for something that doesn't exist yet, tell me: that's often how a new guide starts.",
+            )}
           </p>
           <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button onClick={reset} variant="outline">
-              Voir tout le catalogue
+              {t("Voir tout le catalogue", "See the whole catalogue")}
             </Button>
           </div>
         </div>

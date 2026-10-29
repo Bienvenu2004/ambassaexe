@@ -1,4 +1,5 @@
 import type { Product } from "../data/types";
+import { usePrefs } from "../lib/prefs";
 import { Link } from "../lib/router";
 import { formatPrice } from "../lib/format";
 import { IconArrow, Pill } from "./ui";
@@ -16,6 +17,7 @@ export function CoverImage({
   priority?: boolean;
   className?: string;
 }) {
+  const { t } = usePrefs();
   if (!slug) {
     // Placeholder : l'absence d'image ne casse jamais la mise en page.
     return (
@@ -34,7 +36,7 @@ export function CoverImage({
   return (
     <img
       src={`/covers/${file}`}
-      alt={`Couverture — ${title}`}
+      alt={`${t("Couverture", "Cover")} — ${title}`}
       width={size === "lg" ? 900 : 420}
       height={size === "lg" ? 1273 : 594}
       loading={priority ? "eager" : "lazy"}
@@ -45,6 +47,7 @@ export function CoverImage({
 }
 
 export function ProductCard({ p, priority }: { p: Product; priority?: boolean }) {
+  const { t } = usePrefs();
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-2xl bg-card transition-transform duration-300 hover:-translate-y-1">
       <Link
@@ -82,7 +85,7 @@ export function ProductCard({ p, priority }: { p: Product; priority?: boolean })
         <div className="mt-5 flex items-end justify-between gap-2">
           <div>
             {p.accessType === "gratuit" ? (
-              <span className="text-[17px] font-semibold text-clay-deep">Gratuit</span>
+              <span className="text-[17px] font-semibold text-clay-deep">{t("Gratuit", "Free")}</span>
             ) : (
               <>
                 <span className="text-[15.5px] font-semibold text-ink sm:text-[17px]">
@@ -97,7 +100,7 @@ export function ProductCard({ p, priority }: { p: Product; priority?: boolean })
             )}
           </div>
           <span className="inline-flex shrink-0 items-center gap-1.5 text-[13.5px] font-semibold text-clay-deep transition-transform duration-200 group-hover:translate-x-0.5">
-            <span className="hidden sm:inline">Découvrir</span>
+            <span className="hidden sm:inline">{t("Découvrir", "Discover")}</span>
             <IconArrow />
           </span>
         </div>

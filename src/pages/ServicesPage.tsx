@@ -1,21 +1,27 @@
 import { useEffect } from "react";
-import { SERVICES } from "../data/services";
-import { CONTACT, SERVICES_PAGE, SITE } from "../data/site";
+import { CONTACT } from "../data/site";
+import { useContent } from "../data/content";
+import { usePrefs } from "../lib/prefs";
 import { setMeta } from "../lib/seo";
 import { Button, IconWhatsApp, Section, SectionTitle } from "../components/ui";
 import { ServiceCard } from "../components/Cards";
 import { FinalCta } from "../components/Footer";
 
 export function ServicesPage() {
-  const services = SERVICES.filter((s) => s.published);
+  const { site, services: all, servicesPage } = useContent();
+  const { t } = usePrefs();
+  const services = all.filter((s) => s.published);
 
   useEffect(() => {
     setMeta(
-      `Prestations de services — ${SITE.name}`,
-      "Montage vidéo et motion design, avatar IA, visuels produits, création d'ebook, publicité vidéo générée par IA. Prestations en français, devis sur WhatsApp.",
+      `${t("Prestations de services", "Services")} — ${site.name}`,
+      t(
+        "Montage vidéo et motion design, avatar IA, visuels produits, création d'ebook, publicité vidéo générée par IA. Prestations en français, devis sur WhatsApp.",
+        "Video editing and motion design, AI avatars, product visuals, ebook creation, AI-generated video ads. Quotes on WhatsApp.",
+      ),
     );
-    return () => setMeta(SITE.metaTitle, SITE.metaDescription);
-  }, []);
+    return () => setMeta(site.metaTitle, site.metaDescription);
+  }, [site, t]);
 
   return (
     <main className="bg-crosses grain">
@@ -27,18 +33,18 @@ export function ServicesPage() {
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
           <div className="max-w-3xl">
             <h1 className="reveal max-w-[15ch] font-display text-[clamp(2.8rem,8.6vw,5.4rem)] leading-[0.95] font-bold tracking-[-0.04em] text-ink">
-              {SERVICES_PAGE.title}
+              {servicesPage.title}
             </h1>
             <p className="reveal mt-5 max-w-2xl text-[15.5px] leading-relaxed text-slate sm:text-[16.5px]">
-              {SERVICES_PAGE.lead}
+              {servicesPage.lead}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href={`https://wa.me/${CONTACT.whatsapp}`} external size="lg">
                 <IconWhatsApp />
-                Demander un devis
+                {t("Demander un devis", "Ask for a quote")}
               </Button>
               <Button href="#prestations" variant="outline" size="lg">
-                Voir les prestations
+                {t("Voir les prestations", "See the services")}
               </Button>
             </div>
           </div>
@@ -55,10 +61,13 @@ export function ServicesPage() {
         ) : (
           <div className="rounded-2xl border border-dashed border-ink/10 bg-card px-6 py-14 text-center">
             <p className="font-display text-[19px] font-semibold text-ink">
-              Aucune prestation affichée pour le moment
+              {t("Aucune prestation affichée pour le moment", "No services listed right now")}
             </p>
             <p className="mx-auto mt-2 max-w-md text-[16px] leading-relaxed text-ink/75">
-              Écris-moi sur WhatsApp pour me dire ce dont tu as besoin.
+              {t(
+                "Écris-moi sur WhatsApp pour me dire ce dont tu as besoin.",
+                "Message me on WhatsApp and tell me what you need.",
+              )}
             </p>
           </div>
         )}
@@ -67,11 +76,14 @@ export function ServicesPage() {
       <Section className="pb-14 sm:pb-20">
         <div className="rounded-[26px] bg-card p-6 sm:p-10">
           <SectionTitle
-            title="Pas de mauvaise surprise"
-            lead="Le travail avance par étapes, et tu valides chacune avant qu'on passe à la suivante."
+            title={t("Pas de mauvaise surprise", "No bad surprises")}
+            lead={t(
+              "Le travail avance par étapes, et tu valides chacune avant qu'on passe à la suivante.",
+              "The work moves in steps, and you approve each one before we move on.",
+            )}
           />
           <ul className="mt-8 grid gap-x-10 gap-y-7 sm:grid-cols-2">
-            {SERVICES_PAGE.reassurance.map((r) => (
+            {servicesPage.reassurance.map((r) => (
               <li key={r.title}>
                 <p className="font-display text-[15.5px] font-semibold text-ink">{r.title}</p>
                 <p className="mt-2 text-[13px] leading-relaxed text-slate">{r.text}</p>
@@ -82,8 +94,11 @@ export function ServicesPage() {
       </Section>
 
       <FinalCta
-        title="Dis-moi ce dont tu as besoin."
-        lead="Un message sur WhatsApp suffit pour commencer. Je réponds sous 24 heures, et le devis est gratuit."
+        title={t("Dis-moi ce dont tu as besoin.", "Tell me what you need.")}
+        lead={t(
+          "Un message sur WhatsApp suffit pour commencer. Je réponds sous 24 heures, et le devis est gratuit.",
+          "One WhatsApp message is enough to start. I reply within 24 hours, and the quote is free.",
+        )}
       />
     </main>
   );

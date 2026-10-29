@@ -1,21 +1,17 @@
 import { useEffect } from "react";
 import type { Resource } from "../data/resources";
-import { RESOURCES } from "../data/resources";
-import { CONTACT, FREE_PAGE, SITE } from "../data/site";
+import { CONTACT } from "../data/site";
+import { useContent } from "../data/content";
+import { usePrefs } from "../lib/prefs";
+import { formatDate } from "../lib/format";
 import { Link } from "../lib/router";
 import { setMeta } from "../lib/seo";
 import { IconArrow, IconWhatsApp, Pill, Section } from "../components/ui";
 
-const dateFr = (iso: string) =>
-  new Date(iso + "T12:00:00").toLocaleDateString("fr-FR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-
 /* ── La liste ─────────────────────────────────────────────────────────── */
 
 function Card({ r, first }: { r: Resource; first: boolean }) {
+  const { lang, t } = usePrefs();
   return (
     <article className="h-full">
       <Link
@@ -53,10 +49,10 @@ function Card({ r, first }: { r: Resource; first: boolean }) {
           </p>
           <span className="mt-5 flex items-center justify-between gap-3 pt-1">
             <span className="inline-flex items-center gap-2 text-[15px] font-bold text-ink transition-transform duration-200 group-hover:translate-x-1">
-              Lire
+              {t("Lire", "Read")}
               <IconArrow />
             </span>
-            <span className="text-[14.5px] text-slate">{dateFr(r.date)}</span>
+            <span className="text-[14.5px] text-slate">{formatDate(r.date, lang)}</span>
           </span>
         </div>
       </Link>
@@ -65,29 +61,34 @@ function Card({ r, first }: { r: Resource; first: boolean }) {
 }
 
 export function ResourcesPage() {
-  const items = RESOURCES.filter((r) => r.published).sort((a, b) =>
+  const { site, freePage, resources } = useContent();
+  const { t } = usePrefs();
+  const items = resources.filter((r) => r.published).sort((a, b) =>
     b.date.localeCompare(a.date),
   );
 
   useEffect(() => {
     setMeta(
-      `Ressources et outils — ${SITE.name}`,
-      "Les outils d'IA et de création que je teste et que je garde, expliqués en français, avec le lien pour y aller.",
+      `${t("Ressources et outils", "Resources & tools")} — ${site.name}`,
+      t(
+        "Les outils d'IA et de création que je teste et que je garde, expliqués en français, avec le lien pour y aller.",
+        "The AI and creative tools I test and keep, explained in plain words, with the link to each one.",
+      ),
     );
-    return () => setMeta(SITE.metaTitle, SITE.metaDescription);
-  }, []);
+    return () => setMeta(site.metaTitle, site.metaDescription);
+  }, [site, t]);
 
   return (
     <main id="contenu">
       <Section className="pt-10 pb-12 sm:pt-16 sm:pb-16">
         <h1 className="reveal max-w-[16ch] font-display text-[clamp(2.4rem,7.6vw,4.4rem)] leading-[0.96] font-bold tracking-[-0.035em] text-ink">
-          {FREE_PAGE.title}
+          {freePage.title}
         </h1>
         <p
           className="reveal mt-6 max-w-[46ch] text-[17px] leading-[1.55] text-ink sm:text-[19px]"
           style={{ animationDelay: "70ms" }}
         >
-          {FREE_PAGE.lead}
+          {freePage.lead}
         </p>
       </Section>
 
@@ -101,11 +102,13 @@ export function ResourcesPage() {
         ) : (
           <div className="rounded-[20px] bg-paper-2 px-6 py-20 text-center">
             <p className="font-display text-[22px] font-semibold text-ink">
-              Rien ici pour le moment
+              {t("Rien ici pour le moment", "Nothing here yet")}
             </p>
             <p className="mx-auto mt-3 max-w-md text-[16px] leading-relaxed text-ink/80">
-              Je publie un outil quand je l'ai vraiment utilisé. Reviens bientôt, ou dis-moi
-              ce que tu cherches.
+              {t(
+                "Je publie un outil quand je l'ai vraiment utilisé. Reviens bientôt, ou dis-moi ce que tu cherches.",
+                "I publish a tool once I've really used it. Come back soon, or tell me what you're looking for.",
+              )}
             </p>
             <a
               href={`https://wa.me/${CONTACT.whatsapp}`}
@@ -114,7 +117,7 @@ export function ResourcesPage() {
               className="press mt-8 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-[14.5px] font-bold text-paper"
             >
               <IconWhatsApp />
-              Me faire une demande
+              {t("Me faire une demande", "Send me a request")}
             </a>
           </div>
         )}
@@ -126,13 +129,19 @@ export function ResourcesPage() {
 /* ── L'article ────────────────────────────────────────────────────────── */
 
 export function ResourcePage({ r }: { r: Resource }) {
+  const { site, resources } = useContent();
+  const { lang, t } = usePrefs();
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-    setMeta(`${r.title} — ${SITE.name}`, r.excerpt);
-    return () => setMeta(SITE.metaTitle, SITE.metaDescription);
-  }, [r]);
+  }, [r.id]);
 
-  const others = RESOURCES.filter((x) => x.published && x.id !== r.id).slice(0, 2);
+  useEffect(() => {
+    setMeta(`${r.title} — ${site.name}`, r.excerpt);
+    return () => setMeta(site.metaTitle, site.metaDescription);
+  }, [r, site]);
+
+  const others = resources.filter((x) => x.published && x.id !== r.id).slice(0, 2);
 
   return (
     <main id="contenu">
@@ -148,13 +157,13 @@ export function ResourcePage({ r }: { r: Resource }) {
             {r.excerpt}
           </p>
           <p className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[15px] text-slate">
-            <span>{dateFr(r.date)}</span>
+            <span>{formatDate(r.date, lang)}</span>
             <Link
               to="/gratuit"
               className="inline-flex items-center gap-2 font-semibold text-ink transition-colors hover:text-clay-deep"
             >
               <IconArrow className="rotate-180" />
-              Toutes les ressources
+              {t("Toutes les ressources", "All resources")}
             </Link>
           </p>
         </Section>
@@ -180,9 +189,9 @@ export function ResourcePage({ r }: { r: Resource }) {
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,330px)] lg:gap-16">
             <div>
               <div className="space-y-6">
-                {r.body.map((t, i) => (
+                {r.body.map((p, i) => (
                   <p key={i} className="on-scroll max-w-[62ch] text-[17px] leading-[1.65] text-ink">
-                    {t}
+                    {p}
                   </p>
                 ))}
               </div>
@@ -190,7 +199,7 @@ export function ResourcePage({ r }: { r: Resource }) {
               {r.useCases && r.useCases.length > 0 && (
                 <div className="mt-12">
                   <h2 className="on-scroll font-display text-[clamp(1.4rem,3.6vw,2rem)] leading-tight font-semibold tracking-[-0.02em] text-ink">
-                    Ce que tu peux construire avec
+                    {t("Ce que tu peux construire avec", "What you can do with it")}
                   </h2>
                   <ul className="mt-6 space-y-3">
                     {r.useCases.map((u) => (
@@ -206,7 +215,7 @@ export function ResourcePage({ r }: { r: Resource }) {
               )}
 
               {r.notice && (
-                <div className="on-scroll mt-10 rounded-[18px] bg-clay px-6 py-7 text-ink sm:px-8">
+                <div className="on-scroll mt-10 rounded-[18px] bg-clay px-6 py-7 text-on-clay sm:px-8">
                   <h2 className="font-display text-[19px] font-semibold">{r.notice.title}</h2>
                   <p className="mt-2.5 max-w-[56ch] text-[16px] leading-[1.6]">{r.notice.text}</p>
                 </div>
@@ -215,7 +224,7 @@ export function ResourcePage({ r }: { r: Resource }) {
 
             {/* Les liens, collés en haut de colonne */}
             <aside className="lg:sticky lg:top-24 lg:self-start">
-              <h2 className="font-display text-[19px] font-semibold text-ink">Y aller</h2>
+              <h2 className="font-display text-[19px] font-semibold text-ink">{t("Y aller", "Go there")}</h2>
               <ul className="mt-5 space-y-3">
                 {r.links.map((l) => (
                   <li key={l.url} className="on-scroll">
@@ -245,9 +254,9 @@ export function ResourcePage({ r }: { r: Resource }) {
 
               {r.tags && r.tags.length > 0 && (
                 <ul className="mt-8 flex flex-wrap gap-x-4 gap-y-2">
-                  {r.tags.map((t) => (
-                    <li key={t} className="text-[15px] text-slate">
-                      {t}
+                  {r.tags.map((tag) => (
+                    <li key={tag} className="text-[15px] text-slate">
+                      {tag}
                     </li>
                   ))}
                 </ul>
@@ -260,7 +269,7 @@ export function ResourcePage({ r }: { r: Resource }) {
       {others.length > 0 && (
         <Section className="pb-20 sm:pb-28">
           <h2 className="font-display text-[clamp(1.4rem,3.6vw,2rem)] font-semibold tracking-[-0.02em] text-ink">
-            À lire aussi
+            {t("À lire aussi", "Read next")}
           </h2>
           <div className="mt-8 grid gap-12 sm:grid-cols-2 sm:gap-8">
             {others.map((x) => (
@@ -273,18 +282,20 @@ export function ResourcePage({ r }: { r: Resource }) {
       <Section className="pb-20 sm:pb-28">
         <div className="rounded-[22px] bg-ink px-6 py-14 text-paper sm:px-12 sm:py-20">
           <h2 className="max-w-[18ch] font-display text-[clamp(1.8rem,5vw,2.8rem)] leading-[1.03] font-bold tracking-[-0.03em]">
-            Et après le prototype ?
+            {t("Et après le prototype ?", "And after the prototype?")}
           </h2>
           <p className="mt-5 max-w-[52ch] text-[16.5px] leading-[1.6] text-paper/75">
-            Ces outils vont loin, puis ils s'arrêtent. Quand c'est le cas, je reprends le
-            code et je le mène jusqu'au bout.
+            {t(
+              "Ces outils vont loin, puis ils s'arrêtent. Quand c'est le cas, je reprends le code et je le mène jusqu'au bout.",
+              "These tools go far, then they stop. When they do, I take over the code and see it through to the end.",
+            )}
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
               to="/services"
-              className="press inline-flex items-center justify-center gap-2.5 rounded-full bg-clay px-7 py-4 text-[15px] font-bold text-ink"
+              className="press inline-flex items-center justify-center gap-2.5 rounded-full bg-clay px-7 py-4 text-[15px] font-bold text-on-clay"
             >
-              Voir mes prestations
+              {t("Voir mes prestations", "See my services")}
               <IconArrow />
             </Link>
             <a
@@ -294,7 +305,7 @@ export function ResourcePage({ r }: { r: Resource }) {
               className="press inline-flex items-center justify-center gap-2.5 rounded-full bg-paper/10 px-7 py-4 text-[15px] font-bold text-paper transition-colors hover:bg-paper/20"
             >
               <IconWhatsApp />
-              M'écrire
+              {t("M'écrire", "Write to me")}
             </a>
           </div>
         </div>

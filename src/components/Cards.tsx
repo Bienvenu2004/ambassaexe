@@ -1,6 +1,7 @@
 import type { Product, Service } from "../data/types";
 import { CONTACT } from "../data/site";
 import { buyLink } from "../lib/format";
+import { usePrefs, type Lang } from "../lib/prefs";
 import { Link } from "../lib/router";
 import { Button, IconDownload } from "./ui";
 import { CoverImage } from "./ProductCard";
@@ -8,7 +9,8 @@ import { CoverImage } from "./ProductCard";
 /* ── Ressource gratuite ───────────────────────────────────────────────── */
 
 export function FreebieCard({ p, i = 0 }: { p: Product; i?: number }) {
-  const link = buyLink(p.purchaseUrl, p.title, CONTACT.whatsapp, true);
+  const { lang, t } = usePrefs();
+  const link = buyLink(p.purchaseUrl, p.title, CONTACT.whatsapp, true, lang);
   const pages = p.specs?.find((s) => s.label === "Pages")?.value;
 
   return (
@@ -33,17 +35,21 @@ export function FreebieCard({ p, i = 0 }: { p: Product; i?: number }) {
         <p className="mt-2 line-clamp-3 text-[13px] leading-relaxed text-slate">{p.description}</p>
 
         <div className="mt-auto pt-4">
-          {pages && <p className="mb-3 text-[15px] text-slate">PDF · {pages} pages · Sans inscription</p>}
+          {pages && (
+            <p className="mb-3 text-[15px] text-slate">
+              {t(`PDF · ${pages} pages · Sans inscription`, `PDF · ${pages} pages · No sign-up`)}
+            </p>
+          )}
           <Button
             href={link.href}
             external={link.external}
             download={link.download}
             variant="outline"
             className="w-full border-clay/40 text-clay-deep hover:border-clay hover:text-clay-deep"
-            ariaLabel={`Télécharger ${p.title}`}
+            ariaLabel={`${t("Télécharger", "Download")} ${p.title}`}
           >
             <IconDownload />
-            Télécharger
+            {t("Télécharger", "Download")}
           </Button>
         </div>
       </div>
@@ -53,16 +59,17 @@ export function FreebieCard({ p, i = 0 }: { p: Product; i?: number }) {
 
 /* ── Prestation ───────────────────────────────────────────────────────── */
 
-export function priceLabel(s: Service): string {
+export function priceLabel(s: Service, lang: Lang = "fr"): string {
   if (s.priceNote) return s.priceNote;
   if (s.priceFrom && s.currency) {
-    const n = new Intl.NumberFormat("fr-FR").format(s.priceFrom).replace(/ /g, " ");
-    return `À partir de ${n} ${s.currency}`;
+    const n = new Intl.NumberFormat("fr-FR").format(s.priceFrom).replace(/ /g, " ");
+    return lang === "en" ? `From ${n} ${s.currency}` : `À partir de ${n} ${s.currency}`;
   }
-  return "Sur devis";
+  return lang === "en" ? "On quote" : "Sur devis";
 }
 
 export function ServiceCard({ s, i = 0 }: { s: Service; i?: number }) {
+  const { lang } = usePrefs();
   return (
     <article
       className="group relative rounded-[20px] bg-card px-6 py-7 transition-colors duration-200 hover:bg-ink sm:px-9 sm:py-9"
@@ -84,7 +91,7 @@ export function ServiceCard({ s, i = 0 }: { s: Service; i?: number }) {
 
         <div className="flex items-center gap-5 lg:flex-col lg:items-end lg:gap-1.5">
           <p className="text-[15px] font-semibold text-ink group-hover:text-paper">
-            {priceLabel(s)}
+            {priceLabel(s, lang)}
           </p>
           {s.duration && (
             <p className="text-[15px] text-slate group-hover:text-paper/60">{s.duration}</p>

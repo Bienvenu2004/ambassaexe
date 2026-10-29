@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "../lib/router";
+import { usePrefs } from "../lib/prefs";
 import { SITE } from "../data/site";
 
 /* ── Marque ───────────────────────────────────────────────────────────── */
@@ -8,7 +9,7 @@ import { SITE } from "../data/site";
 export function TerminalMark({ size = 36 }: { size?: number }) {
   return (
     <span
-      className="grid shrink-0 place-items-center rounded-[26%] bg-ink"
+      className="grid shrink-0 place-items-center rounded-[26%] bg-[#1a1a1a]"
       style={{ width: size, height: size }}
       aria-hidden="true"
     >
@@ -31,17 +32,88 @@ export function TerminalMark({ size = 36 }: { size?: number }) {
 }
 
 export function Wordmark({ size = 34 }: { size?: number }) {
+  const { t } = usePrefs();
   return (
     <Link
       to="/"
       className="group inline-flex shrink-0 items-center gap-2.5 whitespace-nowrap"
-      ariaLabel={`${SITE.name} — accueil`}
+      ariaLabel={`${SITE.name} — ${t("accueil", "home")}`}
     >
       <TerminalMark size={size} />
       <span className="font-display text-[19px] leading-none font-bold tracking-[-0.02em] text-ink">
         ambassa<span className="text-clay-deep">.exe</span>
       </span>
     </Link>
+  );
+}
+
+/* ── Thème et langue ──────────────────────────────────────────────────── */
+
+const IconSun = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="size-[18px] shrink-0" aria-hidden="true">
+    <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
+    <path
+      d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+    />
+  </svg>
+);
+
+const IconMoon = () => (
+  <svg viewBox="0 0 24 24" fill="none" className="size-[18px] shrink-0" aria-hidden="true">
+    <path
+      d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+/** Bascule clair / sombre. L'icône montre le thème vers lequel on va. */
+export function ThemeToggle({ className = "" }: { className?: string }) {
+  const { theme, toggleTheme, t } = usePrefs();
+  const dark = theme === "dark";
+  return (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      aria-label={dark ? t("Passer en mode clair", "Switch to light mode") : t("Passer en mode sombre", "Switch to dark mode")}
+      title={dark ? t("Mode clair", "Light mode") : t("Mode sombre", "Dark mode")}
+      className={`grid size-10 place-items-center rounded-full text-ink-soft transition-colors hover:text-clay-deep ${className}`}
+    >
+      {dark ? <IconSun /> : <IconMoon />}
+    </button>
+  );
+}
+
+/** FR | EN : la langue active est pleine, l'autre se clique. */
+export function LangToggle({ className = "" }: { className?: string }) {
+  const { lang, setLang, t } = usePrefs();
+  return (
+    <div
+      role="group"
+      aria-label={t("Langue", "Language")}
+      className={`inline-flex items-center rounded-full bg-paper-2 p-1 text-[12.5px] font-bold ${className}`}
+    >
+      {(["fr", "en"] as const).map((l) => (
+        <button
+          key={l}
+          type="button"
+          onClick={() => setLang(l)}
+          aria-pressed={lang === l}
+          lang={l}
+          aria-label={l === "fr" ? "Français" : "English"}
+          className={`rounded-full px-2.5 py-1 uppercase transition-colors ${
+            lang === l ? "bg-ink text-paper" : "text-slate hover:text-ink"
+          }`}
+        >
+          {l}
+        </button>
+      ))}
+    </div>
   );
 }
 
@@ -83,7 +155,7 @@ export function Button({
     lg: "px-6 py-3.5 text-[14.5px] sm:px-8 sm:text-[15.5px]",
   };
   const variants = {
-    clay: "bg-clay text-ink  hover:bg-clay-deep hover:-translate-y-0.5",
+    clay: "bg-clay text-on-clay  hover:bg-clay-deep hover:-translate-y-0.5",
     ink: "bg-ink text-paper hover:bg-ink-soft hover:-translate-y-0.5",
     outline: "border border-ink/15 bg-card text-ink hover:border-clay/60 hover:text-clay",
     ghost: "text-slate hover:text-clay",
@@ -162,7 +234,7 @@ export function Chip({
 }) {
   const tones = {
     ink: "bg-ink text-paper",
-    clay: "bg-clay text-ink",
+    clay: "bg-clay text-on-clay",
     outline: "border border-ink/15 bg-card text-slate",
   };
   return (

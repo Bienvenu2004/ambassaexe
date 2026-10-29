@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import type { Service } from "../data/types";
-import { SERVICES } from "../data/services";
-import { CONTACT, SITE } from "../data/site";
+import { CONTACT } from "../data/site";
+import { useContent } from "../data/content";
+import { usePrefs } from "../lib/prefs";
 import { Link } from "../lib/router";
 import { setMeta } from "../lib/seo";
 import {
@@ -16,16 +17,24 @@ import { ServiceCard, priceLabel } from "../components/Cards";
 import { FinalCta } from "../components/Footer";
 
 export function ServicePage({ s }: { s: Service }) {
-  const others = SERVICES.filter((x) => x.published && x.id !== s.id).slice(0, 3);
+  const { site, services } = useContent();
+  const { lang, t } = usePrefs();
+  const others = services.filter((x) => x.published && x.id !== s.id).slice(0, 3);
   const devis = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(
-    `Bonjour, je souhaite un devis pour la prestation « ${s.title} ».`,
+    t(
+      `Bonjour, je souhaite un devis pour la prestation « ${s.title} ».`,
+      `Hello, I'd like a quote for « ${s.title} ».`,
+    ),
   )}`;
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-    setMeta(`${s.title} — ${SITE.name}`, s.description);
-    return () => setMeta(SITE.metaTitle, SITE.metaDescription);
-  }, [s]);
+  }, [s.id]);
+
+  useEffect(() => {
+    setMeta(`${s.title} — ${site.name}`, s.description);
+    return () => setMeta(site.metaTitle, site.metaDescription);
+  }, [s, site]);
 
   return (
     <main className="bg-crosses grain">
@@ -49,14 +58,14 @@ export function ServicePage({ s }: { s: Service }) {
               className="inline-flex items-center gap-2 text-[14px] font-medium text-slate transition-colors hover:text-clay-deep"
             >
               <IconArrow className="rotate-180" />
-              Toutes les prestations
+              {t("Toutes les prestations", "All services")}
             </Link>
 
             {s.longDescription && (
               <div className="mt-7 space-y-4">
-                {s.longDescription.map((t, i) => (
+                {s.longDescription.map((p, i) => (
                   <p key={i} className="text-[17px] leading-[1.7] text-ink/85">
-                    {t}
+                    {p}
                   </p>
                 ))}
               </div>
@@ -64,7 +73,7 @@ export function ServicePage({ s }: { s: Service }) {
 
             <div className="mt-10">
               <h2 className="rule-gold font-display text-[20px] font-semibold text-ink">
-                Ce qui est livré
+                {t("Ce qui est livré", "What you get")}
               </h2>
               <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                 {s.deliverables.map((d) => (
@@ -82,12 +91,12 @@ export function ServicePage({ s }: { s: Service }) {
             {s.process && s.process.length > 0 && (
               <div className="mt-10">
                 <h2 className="rule-gold font-display text-[20px] font-semibold text-ink">
-                  Comment ça se passe
+                  {t("Comment ça se passe", "How it works")}
                 </h2>
                 <ol className="mt-6 space-y-5">
                   {s.process.map((p, i) => (
                     <li key={p.title} className="flex gap-4">
-                      <span className="grid size-8 shrink-0 place-items-center rounded-full bg-clay text-[13px] font-bold text-ink">
+                      <span className="grid size-8 shrink-0 place-items-center rounded-full bg-clay text-[13px] font-bold text-on-clay">
                         {i + 1}
                       </span>
                       <div>
@@ -108,31 +117,36 @@ export function ServicePage({ s }: { s: Service }) {
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-2xl bg-card p-5 sm:p-6">
               <p className="font-display text-[clamp(1.5rem,4vw,2rem)] leading-none font-semibold text-clay-deep">
-                {priceLabel(s)}
+                {priceLabel(s, lang)}
               </p>
               {s.duration && (
                 <p className="mt-3 text-[14.5px] text-slate">
-                  Délai indicatif : <span className="text-ink">{s.duration}</span>
+                  {t("Délai indicatif :", "Typical turnaround:")}{" "}
+                  <span className="text-ink">{s.duration}</span>
                 </p>
               )}
 
               <div className="mt-6 flex flex-col gap-3">
                 <Button href={devis} external size="lg">
                   <IconWhatsApp />
-                  Demander un devis
+                  {t("Demander un devis", "Ask for a quote")}
                 </Button>
                 <Button
-                  href={`mailto:${CONTACT.email}?subject=${encodeURIComponent(`Devis — ${s.title}`)}`}
+                  href={`mailto:${CONTACT.email}?subject=${encodeURIComponent(
+                    `${t("Devis", "Quote")} — ${s.title}`,
+                  )}`}
                   variant="outline"
                 >
                   <IconMail />
-                  Par e-mail
+                  {t("Par e-mail", "By email")}
                 </Button>
               </div>
 
               <p className="mt-4 text-[14.5px] leading-relaxed text-ink-soft">
-                Le devis est gratuit et sans engagement. Je réponds sous 24 heures. On cadre le
-                besoin ensemble avant que quoi que ce soit ne commence.
+                {t(
+                  "Le devis est gratuit et sans engagement. Je réponds sous 24 heures. On cadre le besoin ensemble avant que quoi que ce soit ne commence.",
+                  "The quote is free with no commitment. I reply within 24 hours. We scope the need together before anything starts.",
+                )}
               </p>
 
               {s.links?.map((l) => (
@@ -157,15 +171,15 @@ export function ServicePage({ s }: { s: Service }) {
             {s.tags && s.tags.length > 0 && (
             <div className="mt-4 rounded-2xl bg-card p-5">
                 <h2 className="text-[15px] font-medium text-slate">
-                  Dans la même veine
+                  {t("Dans la même veine", "Related topics")}
                 </h2>
                 <ul className="mt-3 flex flex-wrap gap-2">
-                  {s.tags.map((t) => (
+                  {s.tags.map((tag) => (
                     <li
-                      key={t}
+                      key={tag}
                       className="rounded-full bg-card px-3 py-1 text-[15px] text-ink-soft"
                     >
-                      {t}
+                      {tag}
                     </li>
                   ))}
                 </ul>
@@ -174,14 +188,19 @@ export function ServicePage({ s }: { s: Service }) {
 
             <div className="mt-4 rounded-2xl bg-card p-5">
               <p className="font-display text-[15px] font-semibold text-ink">
-                Tu préfères apprendre à le faire toi-même&nbsp;?
+                {t(
+                  "Tu préfères apprendre à le faire toi-même ?",
+                  "Would you rather learn to do it yourself?",
+                )}
               </p>
               <p className="mt-2 text-[16px] leading-relaxed text-ink/75">
-                Plusieurs de ces prestations ont un guide correspondant dans le catalogue, à
-                une fraction du prix.
+                {t(
+                  "Plusieurs de ces prestations ont un guide correspondant dans le catalogue, à une fraction du prix.",
+                  "Several of these services have a matching guide in the catalogue, at a fraction of the price.",
+                )}
               </p>
               <Button to="/ebooks" variant="ghost" className="mt-3 px-0">
-                Voir les guides
+                {t("Voir les guides", "See the guides")}
                 <IconArrow />
               </Button>
             </div>
@@ -191,7 +210,7 @@ export function ServicePage({ s }: { s: Service }) {
         {others.length > 0 && (
           <section className="mt-24 sm:mt-32">
             <h2 className="font-display text-[22px] font-semibold text-ink">
-              Les autres prestations
+              {t("Les autres prestations", "Other services")}
             </h2>
             <div className="mt-6 grid gap-4">
               {others.map((x) => (
@@ -203,8 +222,11 @@ export function ServicePage({ s }: { s: Service }) {
       </div>
 
       <FinalCta
-        title="Dis-moi ce dont tu as besoin."
-        lead="Un message sur WhatsApp suffit pour commencer. Je réponds sous 24 heures, et le devis est gratuit."
+        title={t("Dis-moi ce dont tu as besoin.", "Tell me what you need.")}
+        lead={t(
+          "Un message sur WhatsApp suffit pour commencer. Je réponds sous 24 heures, et le devis est gratuit.",
+          "One WhatsApp message is enough to start. I reply within 24 hours, and the quote is free.",
+        )}
       />
     </main>
   );

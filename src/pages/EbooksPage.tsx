@@ -1,7 +1,7 @@
 import { useEffect, useId, useState } from "react";
-import { ALL_PRODUCTS, PRODUCTS } from "../data/products";
-import { BUNDLES } from "../data/bundles";
-import { CONTACT, EBOOKS_PAGE, FAQ, SITE } from "../data/site";
+import { CONTACT } from "../data/site";
+import { useContent } from "../data/content";
+import { usePrefs } from "../lib/prefs";
 import { buyLink, discountPercent, formatPrice } from "../lib/format";
 import { Link } from "../lib/router";
 import { setMeta } from "../lib/seo";
@@ -24,22 +24,27 @@ import { FinalCta } from "../components/Footer";
 /* ── Les packs ────────────────────────────────────────────────────────── */
 
 function Bundles() {
-  const bundles = BUNDLES.filter((b) => b.published);
+  const { bundles: all, products } = useContent();
+  const { lang, t } = usePrefs();
+  const bundles = all.filter((b) => b.published);
   if (bundles.length === 0) return null;
 
   return (
     <Section id="packs" className="scroll-mt-24 py-14 sm:py-20">
       <SectionTitle
-        title="Plusieurs guides, un seul prix"
-        lead="Quand tu sais que tu vas en utiliser plusieurs, le pack revient moins cher que les guides pris séparément."
+        title={t("Plusieurs guides, un seul prix", "Several guides, one price")}
+        lead={t(
+          "Quand tu sais que tu vas en utiliser plusieurs, le pack revient moins cher que les guides pris séparément.",
+          "When you know you'll use several, the pack costs less than buying the guides one by one.",
+        )}
       />
       <div className="mt-9 grid gap-5">
         {bundles.map((b) => {
           const off = discountPercent(b.price, b.originalPrice);
           const inside = b.items
-            .map((id) => PRODUCTS.find((p) => p.id === id))
+            .map((id) => products.find((p) => p.id === id))
             .filter((p): p is NonNullable<typeof p> => Boolean(p));
-          const link = buyLink(b.purchaseUrl, b.title, CONTACT.whatsapp);
+          const link = buyLink(b.purchaseUrl, b.title, CONTACT.whatsapp, false, lang);
 
           return (
             <article
@@ -74,7 +79,10 @@ function Bundles() {
                     </Button>
                   </div>
                   <p className="mt-3 text-[15px] text-slate">
-                    Paiement unique · Fichiers téléchargeables à garder
+                    {t(
+                      "Paiement unique · Fichiers téléchargeables à garder",
+                      "One-time payment · Downloadable files to keep",
+                    )}
                   </p>
 
                   {inside.length > 0 && (
@@ -147,14 +155,19 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 }
 
 function Faq() {
-  if (FAQ.length === 0) return null;
+  const { faq } = useContent();
+  const { t } = usePrefs();
+  if (faq.length === 0) return null;
   return (
     <Section id="faq" className="scroll-mt-24 py-14 sm:py-20">
       <div className="grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1fr)] lg:gap-16">
         <div className="lg:sticky lg:top-24 lg:self-start">
           <SectionTitle
-            title="Avant d'acheter"
-            lead="Et si ta question n'est pas là, écris-moi directement."
+            title={t("Avant d'acheter", "Before you buy")}
+            lead={t(
+              "Et si ta question n'est pas là, écris-moi directement.",
+              "And if your question isn't here, write to me directly.",
+            )}
           />
           <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col">
             {CONTACT.whatsapp && (
@@ -172,7 +185,7 @@ function Faq() {
           </div>
         </div>
         <ul className="grid gap-2.5">
-          {FAQ.map((f) => (
+          {faq.map((f) => (
             <FaqItem key={f.q} {...f} />
           ))}
         </ul>
@@ -261,16 +274,21 @@ export function EbooksPage({
   category: string;
   onCategory: (v: string) => void;
 }) {
-  const featured = PRODUCTS.filter((p) => p.published && p.featured);
-  const total = ALL_PRODUCTS.filter((p) => p.published).length;
+  const { site, ebooksPage, products, allProducts } = useContent();
+  const { lang, t } = usePrefs();
+  const featured = products.filter((p) => p.published && p.featured);
+  const total = allProducts.filter((p) => p.published).length;
 
   useEffect(() => {
     setMeta(
-      `Ebooks et formations — ${SITE.name}`,
-      "Des ebooks et formations en français : apprendre l'IA de zéro, 1 500 prompts ChatGPT, 500 visuels pour vendeurs. Accès immédiat après paiement.",
+      `${t("Ebooks et formations", "Ebooks and training")} — ${site.name}`,
+      t(
+        "Des ebooks et formations en français : apprendre l'IA de zéro, 1 500 prompts ChatGPT, 500 visuels pour vendeurs. Accès immédiat après paiement.",
+        "Ebooks and training in French: learn AI from zero, 1,500 ChatGPT prompts, 500 visuals for sellers. Instant access after payment.",
+      ),
     );
-    return () => setMeta(SITE.metaTitle, SITE.metaDescription);
-  }, []);
+    return () => setMeta(site.metaTitle, site.metaDescription);
+  }, [site, t]);
 
   return (
     <main className="bg-crosses grain">
@@ -282,17 +300,17 @@ export function EbooksPage({
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
           <div className="max-w-3xl">
             <h1 className="reveal mt-4 font-display text-[clamp(2.7rem,8.4vw,5.2rem)] leading-[0.98] font-semibold text-balance text-ink">
-              {EBOOKS_PAGE.title}
+              {ebooksPage.title}
             </h1>
             <p className="reveal mt-5 max-w-2xl text-[16.5px] leading-relaxed text-ink-soft sm:text-[17.5px]">
-              {EBOOKS_PAGE.lead}
+              {ebooksPage.lead}
             </p>
             <ul className="mt-8 flex flex-col gap-x-6 gap-y-1.5 text-[15px] text-ink-soft sm:flex-row sm:flex-wrap">
-              <li>{total} ressources en français</li>
+              <li>{t(`${total} ressources en français`, `${total} resources, written in French`)}</li>
               <li aria-hidden="true" className="hidden text-line sm:block">·</li>
-              <li>Accès immédiat après paiement</li>
+              <li>{t("Accès immédiat après paiement", "Instant access after payment")}</li>
               <li aria-hidden="true" className="hidden text-line sm:block">·</li>
-              <li>Fichiers à garder à vie</li>
+              <li>{t("Fichiers à garder à vie", "Files to keep for life")}</li>
             </ul>
           </div>
         </div>
@@ -301,16 +319,31 @@ export function EbooksPage({
       {featured.length > 0 && (
         <Section className="py-12 sm:py-16">
           <SectionTitle
-            title="Les plus demandés"
-            lead="Si tu ne dois en choisir qu'un, commence par l'un de ceux-là."
+            title={t("Les plus demandés", "Most popular")}
+            lead={t(
+              "Si tu ne dois en choisir qu'un, commence par l'un de ceux-là.",
+              "If you only pick one, start with one of these.",
+            )}
           />
           <Featured items={featured} />
           <p className="mt-8 text-[16px] leading-relaxed text-ink-soft">
-            Ces trois-là, plus Motion Design avec Claude, sont réunis dans{" "}
-            <Link to="/guide-ultime" className="font-semibold text-clay-deep underline underline-offset-4">
-              le Guide Ultime
-            </Link>
-            . Pris ensemble, ils reviennent moins cher qu'achetés un par un.
+            {lang === "en" ? (
+              <>
+                These three, plus Motion Design avec Claude, come together in{" "}
+                <Link to="/guide-ultime" className="font-semibold text-clay-deep underline underline-offset-4">
+                  the Ultimate Guide
+                </Link>
+                . Taken together, they cost less than buying them one by one.
+              </>
+            ) : (
+              <>
+                Ces trois-là, plus Motion Design avec Claude, sont réunis dans{" "}
+                <Link to="/guide-ultime" className="font-semibold text-clay-deep underline underline-offset-4">
+                  le Guide Ultime
+                </Link>
+                . Pris ensemble, ils reviennent moins cher qu'achetés un par un.
+              </>
+            )}
           </p>
         </Section>
       )}
@@ -321,9 +354,12 @@ export function EbooksPage({
       <Faq />
 
       <FinalCta
-        title="Commence par une fiche gratuite"
-        lead="Quatre extraits à télécharger sans inscription. Tu verras le ton, la méthode et la mise en page avant de payer quoi que ce soit."
-        primary={{ to: "/gratuit", label: "Voir les ressources gratuites" }}
+        title={t("Commence par ce qui est gratuit", "Start with what's free")}
+        lead={t(
+          "Des outils et des ressources à découvrir sans inscription, pour juger sur pièces avant de payer quoi que ce soit.",
+          "Tools and resources to explore without signing up, so you can judge for yourself before paying anything.",
+        )}
+        primary={{ to: "/gratuit", label: t("Voir les ressources et outils", "See resources & tools") }}
       />
     </main>
   );

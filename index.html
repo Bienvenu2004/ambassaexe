@@ -6,6 +6,31 @@
     <meta name="theme-color" content="#F7F7F7" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <!-- Thème et langue appliqués avant le premier affichage (voir src/lib/prefs.tsx). -->
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var get = function (k) {
+          try { return localStorage.getItem(k); } catch (e) { return null; }
+        };
+        var theme = get("theme");
+        if (theme !== "light" && theme !== "dark") {
+          theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        root.setAttribute("data-theme", theme);
+        var lang = get("lang");
+        if (lang !== "fr" && lang !== "en") {
+          lang = "fr";
+          var list = navigator.languages || [navigator.language];
+          for (var i = 0; i < list.length; i++) {
+            var c = String(list[i] || "").slice(0, 2).toLowerCase();
+            if (c === "fr" || c === "en") { lang = c; break; }
+          }
+        }
+        root.setAttribute("lang", lang);
+      })();
+    </script>
+
     <title>ambassa.exe — Les outils IA qui font le boulot à ta place</title>
     <meta
       name="description"
